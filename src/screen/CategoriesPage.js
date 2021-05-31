@@ -6,7 +6,7 @@ import img2 from '../assets/noodle1.png';
 import img3 from '../assets/p.png';
 import img4 from '../assets/chips.png';
 import img5 from '../assets/burger.jpg';
-
+import SideNavigation from '../components/SideNavigation'
 
 class CategoriesPage extends React.Component {
 
@@ -38,6 +38,9 @@ deleteHandler = async () => {
 }
   render() {
     return (
+      <div className="flexible-content">
+        <SideNavigation />
+        <main id="content" className="p-5">
     
       <MDBRow>
       <MDBCol md="12">
@@ -60,9 +63,9 @@ deleteHandler = async () => {
                   <th>Image</th>
                   <th>Name</th>
                   <th>Description</th>
-                  <th>Discount</th>
+                  {/* <th>Discount</th> */}
                   
-                  <th>Home Page Show</th>
+                  {/* <th>Home Page Show</th> */}
                   
                   <th>Action</th>
                 </tr>
@@ -73,8 +76,8 @@ deleteHandler = async () => {
                   <td><img src={img} alt="Project" className="img-fluid"/></td>
                   <td>Fruits</td>
                   <td>Fresh fruits for your daily vitamin <br/> and mineral needs</td>
-                  <td>10%</td>
-                  <td>True</td>
+                  {/* <td>10%</td> */}
+                  {/* <td>True</td> */}
                   <MDBBtn size="sm" outline color="brown">Edite</MDBBtn>
                   <MDBBtn size="sm" outline color="brown">Delete</MDBBtn>
                 </tr>
@@ -83,8 +86,8 @@ deleteHandler = async () => {
                   <td><img src={img1} alt="Project" className="img-fluid"/></td>
                   <td>Breakfast Items</td>
                   <td>Healthy breakfast is what <br/> makes the day great</td>
-                  <td>10%</td>
-                  <td>True</td>
+                  {/* <td>10%</td> */}
+                  {/* <td>True</td> */}
                   <MDBBtn size="sm" outline color="brown">Edite</MDBBtn>
                   <MDBBtn size="sm" outline color="brown">Delete</MDBBtn>
                 </tr>
@@ -93,8 +96,8 @@ deleteHandler = async () => {
                   <td><img src={img2} alt="Project" className="img-fluid"/></td>
                   <td>Noodles</td>
                   <td>Ready to eat food for those <br/> hungry times</td>
-                  <td>10%</td>
-                  <td>True</td>
+                  {/* <td>10%</td> */}
+                  {/* <td>True</td> */}
                   <MDBBtn size="sm" outline color="brown">Edite</MDBBtn>
                   <MDBBtn size="sm" outline color="brown">Delete</MDBBtn>
                 </tr>
@@ -103,8 +106,8 @@ deleteHandler = async () => {
                   <td><img src={img3} alt="Project" className="img-fluid"/></td>
                   <td>Pasta</td>
                   <td>Ready to eat food for those <br/> hungry times</td>
-                  <td>10%</td>
-                  <td>True</td>
+                  {/* <td>10%</td> */}
+                  {/* <td>True</td> */}
                   <MDBBtn size="sm" outline color="brown">Edite</MDBBtn>
                   <MDBBtn size="sm" outline color="brown">Delete</MDBBtn>
                 </tr>
@@ -113,8 +116,8 @@ deleteHandler = async () => {
                   <td><img src={img4} alt="Project" className="img-fluid"/></td>
                   <td>Chips And Crisps</td>
                   <td>Ready to eat food for those <br/> hungry times</td>
-                  <td>10%</td>
-                  <td>True</td>
+                  {/* <td>10%</td> */}
+                  {/* <td>True</td> */}
                   <MDBBtn size="sm" outline color="brown">Edite</MDBBtn>
                   <MDBBtn size="sm" outline color="brown">Delete</MDBBtn>
                 </tr>
@@ -124,7 +127,7 @@ deleteHandler = async () => {
                   <td>Fast Food</td>
                   <td>This Category contains Envato <br/> fruits</td>
                   <td>10%</td>
-                  <td>True</td>
+                  {/* <td>True</td> */}
                   <MDBBtn size="sm" outline color="brown">Edite</MDBBtn>
                   <MDBBtn size="sm" outline color="brown">Delete</MDBBtn>
                 </tr>
@@ -135,7 +138,10 @@ deleteHandler = async () => {
         </MDBCard>
       </MDBCol>
     </MDBRow>
+    </main>
+    </div>
     )
+
 }
 
 };

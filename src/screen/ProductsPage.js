@@ -8,11 +8,14 @@ import src4 from '../assets/pan.png';
 import src5 from '../assets/milk.png';
 import src6 from '../assets/sani.png';
 import src7 from '../assets/shirt.png';
-
+import SideNavigation from '../components/SideNavigation'
 
 
 const ProductsPage =  () => {
   return (
+    <div className="flexible-content">
+        <SideNavigation />
+        <main id="content" className="p-5">
     <>
       <MDBRow>
       <MDBCol md="12">
@@ -36,9 +39,9 @@ const ProductsPage =  () => {
                   <th>Name</th>
                   <th>Quantity</th>
                   <th>Regular Price</th>
-                  <th>Offer</th>
+                  {/* <th>Offer</th> */}
                   <th>Description</th>
-                  <th>Delivery Instructions</th>
+                  {/* <th>Delivery Instructions</th> */}
                   <th>Action</th>
                 </tr>
               </MDBTableHead>
@@ -49,9 +52,9 @@ const ProductsPage =  () => {
                   <td>Apple</td>
                   <td>5</td>
                   <td>150</td>
-                  <td>0%</td>
+                  {/* <td>0%</td> */}
                   <td>Apples from limpopo</td>
-                  <td>Same Day</td>
+                  {/* <td>Same Day</td> */}
                   <MDBBtn size="sm" outline color="brown">Edite</MDBBtn>
                   <MDBBtn size="sm" outline color="brown">Delete</MDBBtn>
                 </tr>
@@ -61,9 +64,9 @@ const ProductsPage =  () => {
                   <td>Corn Flakes</td>
                   <td>5</td>
                   <td>250</td>
-                  <td>5%</td>
+                  {/* <td>5%</td> */}
                   <td>Kellogs Corn Flakes for a healthy <br/> power breakfast</td>
-                  <td>Same Day</td>
+                  {/* <td>Same Day</td> */}
                   <MDBBtn size="sm" outline color="brown">Edite</MDBBtn>
                   <MDBBtn size="sm" outline color="brown">Delete</MDBBtn>
                 </tr>
@@ -73,9 +76,9 @@ const ProductsPage =  () => {
                   <td>Dove Shampoo</td>
                   <td>500ml</td>
                   <td>300</td>
-                  <td>0%</td>
+                  {/* <td>0%</td> */}
                   <td>Dove shampoo for silky smooth hair</td>
-                  <td>Same Day</td>
+                  {/* <td>Same Day</td> */}
                   <MDBBtn size="sm" outline color="brown">Edite</MDBBtn>
                   <MDBBtn size="sm" outline color="brown">Delete</MDBBtn>
                 </tr>
@@ -85,9 +88,9 @@ const ProductsPage =  () => {
                   <td>Farm Fresh Eggs</td>
                   <td>12</td>
                   <td>150</td>
-                  <td>0%</td>
+                  {/* <td>0%</td> */}
                   <td>Farm fresh eggs for daily protein</td>
-                  <td>Same Day</td>
+                  {/* <td>Same Day</td> */}
                   <MDBBtn size="sm" outline color="brown">Edite</MDBBtn>
                   <MDBBtn size="sm" outline color="brown">Delete</MDBBtn>
                 </tr>
@@ -97,9 +100,9 @@ const ProductsPage =  () => {
                   <td>Pancakes</td>
                   <td>10</td>
                   <td>200</td>
-                  <td>0%</td>
+                  {/* <td>0%</td> */}
                   <td>Fresh ready to eat pancakes for <br/> the sweet toothed</td>
-                  <td>Same Day</td>
+                  {/* <td>Same Day</td> */}
                   <MDBBtn size="sm" outline color="brown">Edite</MDBBtn>
                   <MDBBtn size="sm" outline color="brown">Delete</MDBBtn>
                 </tr>
@@ -109,9 +112,9 @@ const ProductsPage =  () => {
                   <td>Milk</td>
                   <td>5L</td>
                   <td>350</td>
-                  <td>0%</td>
+                  {/* <td>0%</td> */}
                   <td>Fresh non fat milk</td>
-                  <td>Same Day</td>
+                  {/* <td>Same Day</td> */}
                   <MDBBtn size="sm" outline color="brown">Edite</MDBBtn>
                   <MDBBtn size="sm" outline color="brown">Delete</MDBBtn>
                 </tr>
@@ -121,9 +124,9 @@ const ProductsPage =  () => {
                   <td>Sanitizer</td>
                   <td>500ml</td>
                   <td>150</td>
-                  <td>0%</td>
+                  {/* <td>0%</td> */}
                   <td>Hand sanitizer for daily hygiene</td>
-                  <td>Same Day</td>
+                  {/* <td>Same Day</td> */}
                   <MDBBtn size="sm" outline color="brown">Edite</MDBBtn>
                   <MDBBtn size="sm" outline color="brown">Delete</MDBBtn>
                 </tr>
@@ -133,9 +136,9 @@ const ProductsPage =  () => {
                   <td>TShirt</td>
                   <td>5</td>
                   <td>1500</td>
-                  <td>0%</td>
+                  {/* <td>0%</td> */}
                   <td>Its very confirtable in Hot days</td>
-                  <td>Same Day</td>
+                  {/* <td>Same Day</td> */}
                   <MDBBtn size="sm" outline color="brown">Edite</MDBBtn>
                   <MDBBtn size="sm" outline color="brown">Delete</MDBBtn>
                   <MDBBtn size="sm" outline color="brown">Add product</MDBBtn>
@@ -148,6 +151,8 @@ const ProductsPage =  () => {
       </MDBCol>
     </MDBRow>
     </>
+    </main>
+    </div>
   )
 }
 

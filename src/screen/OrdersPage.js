@@ -1,9 +1,12 @@
 import React from 'react'
 import { MDBRow, MDBCol, MDBView, MDBCard, MDBCardBody, MDBTable, MDBTableHead, MDBTableBody, } from 'mdbreact';
-
+import SideNavigation from "../components/SideNavigation"
 
 const OrdersPage = () => {
   return (
+    <div className="flexible-content">
+        <SideNavigation />
+        <main id="content" className="p-5">
     <>
       <MDBRow>
         <MDBCol md="12">
@@ -91,6 +94,8 @@ const OrdersPage = () => {
         </MDBCol>
       </MDBRow>
     </>
+    </main>
+    </div>
   )
 }
 
