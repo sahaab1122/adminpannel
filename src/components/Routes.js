@@ -20,6 +20,7 @@ class Routes extends React.Component {
       //     this.props.user.type=='Pages'  ?
     <>
         <Route exact path="/" component={Login} />
+        
         <Route path='/App' component={App} />
         <Route path='/products' component={ProductsPage} />
         <Route path='/catogaries' component={CategoriesPage} />

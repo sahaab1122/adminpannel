@@ -25,15 +25,16 @@ class Login extends React.Component {
            email: this.state.email.trim(),
           password:   this.state.password.trim()
             } )
-        // if (res) {
+        // if (res.success === true) {
+        //     window.location
+            
+        //     // if (this.props.admin) {
+        //     //     this.props.admin()
+        //     // }
+        //     // else {
+        //     //     window.history.back()
 
-        //     if (this.props.admin) {
-        //         this.props.admin()
-        //     }
-        //     else {
-        //         window.history.back()
-
-        //     }
+        //     // }
         // }
         // this.props.setLoading(false)
     }
