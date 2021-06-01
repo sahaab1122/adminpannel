@@ -38,25 +38,25 @@ class Routes extends React.Component {
   }
 }
 
-const mapState = state => {
-  return {
-    // logged: state.authReducer.logged,
-    // token: state.authReducer.token,
-    // user: state.authReducer.user,
-    // city: state.authReducer.city,
-    // logged: state.authReducer.logged,
-    // type: state.authReducer.user.type,
-    // lang: state.globalReducer.lang,
-  }
-}
-const mapDispatch = dispatch => {
-  return {
-    // setCity: () => dispatch({ type: SET_CITY, }),
-    // _getItems: () => dispatch(_getItems()),
-    // _getCategories: () => dispatch(_getCategories()),
-    // _getFeatured: () => dispatch(_getFeatured()),
-    // _getFavourite: (token, uid) => dispatch(_getFavourite(token, uid)),
-    // _getCoupon: (token) => dispatch(_getCoupon(token))
-  }
-}
+// const mapState = state => {
+//   return {
+//     // logged: state.authReducer.logged,
+//     // token: state.authReducer.token,
+//     // user: state.authReducer.user,
+//     // city: state.authReducer.city,
+//     // logged: state.authReducer.logged,
+//     // type: state.authReducer.user.type,
+//     // lang: state.globalReducer.lang,
+//   }
+// }
+// const mapDispatch = dispatch => {
+//   return {
+//     // setCity: () => dispatch({ type: SET_CITY, }),
+//     // _getItems: () => dispatch(_getItems()),
+//     // _getCategories: () => dispatch(_getCategories()),
+//     // _getFeatured: () => dispatch(_getFeatured()),
+//     // _getFavourite: (token, uid) => dispatch(_getFavourite(token, uid)),
+//     // _getCoupon: (token) => dispatch(_getCoupon(token))
+//   }
+// }
 export default Routes;

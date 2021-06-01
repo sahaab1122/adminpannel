@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
-import Routes from '../src/components/Routes';
+// import Routes from '../src/components/Routes';
 // import TopNavigation from './components/topNavigation';
 import SideNavigation from './components/SideNavigation';
-import Footer from './components/Footer';
+// import Footer from './components/Footer';
 import './index.css';
-import ProductsPage from "./screen/ProductsPage";
-import CategoriesPage from "./screen/CategoriesPage";
-import OrdersPage from "./screen/OrdersPage";
-import UsersPage from "./screen/UsersPage";
+// import ProductsPage from "./screen/ProductsPage";
+// import CategoriesPage from "./screen/CategoriesPage";
+// import OrdersPage from "./screen/OrdersPage";
+// import UsersPage from "./screen/UsersPage";
 class App extends Component {
 
   render() {
