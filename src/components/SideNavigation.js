@@ -34,6 +34,12 @@ const TopNavigation = () => {
                         Users
                     </MDBListGroupItem>
                 </NavLink>
+                <NavLink to="/AddCategory" activeClassName="activeClass">
+                    <MDBListGroupItem>
+                        <MDBIcon icon="fas fa-user-friends" className="mr-3"/>
+                        Add Category
+                    </MDBListGroupItem>
+                </NavLink>
                 <div className="row justify-content-center mt-5 mr-3">
                         <MDBBtn className="Btn">Log out</MDBBtn>
                     </div>

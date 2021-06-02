@@ -6,4 +6,5 @@ export default {
     login: BASE_URL + 'login',
     register: BASE_URL + 'register',
     update: BASE_URL + 'update/',
+    getuser: BASE_URL + 'users'
 }

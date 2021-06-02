@@ -1,6 +1,8 @@
-import api from '../../services/api';
+
 // import { setError, setLoading } from '../actions/globalActions'
-import { set_items, set_category, set_favourite, set_featured, set_user, set_coupon, set_orders, set_transactions } from '../actions/appActions'
+import api from '../../api/api';
+import path from '../../api/path';
+import { set_items, set_category, set_favourite, set_featured, set_user, set_coupon, set_orders, set_transactions } from '../actions/appAction'
 
 export const _getItems = () => {
 
@@ -33,24 +35,24 @@ export const _getCategories = () => {
         }
     }
 }
-export const _getFavourite = (token, uid) => {
+export const _getFavourite = () => {
 
     return async (dispatch, getState) => {
 
-        let res = await api.getFavourite(token, uid);
+        let res = await api.getFavourite();
         if (res) {
             dispatch(set_favourite(res.result))
         }
     }
 }
 
-export const _getUsers = (token) => {
+export const _getUsers = () => {
 
     return async (dispatch, getState) => {
 
-        let res = await api.getUsers(token);
+        let res = await api(path.getuser, "GET",)
         if (res) {
-            dispatch(set_user(res.result))
+            // dispatch(set_user(res.result))
         }
     }
 }

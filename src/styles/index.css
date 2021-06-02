@@ -1,4 +1,4 @@
-#root {
+/* /* #root {
   margin: 0px!important;
   padding: 0px!important;
   font-family: 'Poppins', sans-serif;
@@ -396,30 +396,30 @@ input[type=number] {
   padding-right: 50px;
 }
 
-.img-1 {
+/* .img-1 {
   background-image: url(../assets/MaskGroup1.png);
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
   height: 90vh;
-}
+} */
 
-.img-4 {
+/* .img-4 {
   background-image: url(../assets/img.png);
   background-position: center;
   background-repeat: no-repeat;
   height: 81vh!important;
-}
+} */
 
-.img-2 {
+/* .img-2 {
   background-image: url(../assets/Mask.png);
   height: 30vh;
-}
+} */
 
-.img-3 {
+/* .img-3 {
   background-image: url(../assets/Mask2.png);
   height: 28vh;
-}
+} */
 
 .row {
   display: flex;
@@ -607,7 +607,7 @@ input[type=number] {
   margin-top: 250px;
 }
 
-.shop2bg {
+/* .shop2bg {
   background-image: url('../assets/MaskGroup1.png');
   background-size: cover;
   width: 100%;
@@ -617,7 +617,7 @@ input[type=number] {
   position: absolute;
   top: -30px;
   width: 100%;
-}
+} */
 
 .new-navbar {
   display: flex;
@@ -1064,4 +1064,4 @@ body {
 
 .center {
   text-align: center;
-}
+}  

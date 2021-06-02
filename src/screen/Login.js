@@ -6,6 +6,7 @@ import { _login } from "../store/middlewares/authMiddleware";
 import "./login.css";
 import  React  from 'react';
 import Loading from '../components/Loading'
+import App from "../App";
 
 
  
@@ -18,24 +19,21 @@ class Login extends React.Component {
         loading: true,
     }
 
-    login = async (e) => {
+    getusers = async (e) => {
         e.preventDefault()
         // this.props.setLoading(true)
-        let res = await this.props._login({
-           email: this.state.email.trim(),
-          password:   this.state.password.trim()
-            } )
-        // if (res.success === true) {
-        //     window.location
+        let res = await this.props._getusers()
+        if (res.success === true) {
+            // window.location ="App"
             
-        //     // if (this.props.admin) {
-        //     //     this.props.admin()
-        //     // }
-        //     // else {
-        //     //     window.history.back()
+            // if (this.props.admin) {
+            //     this.props.admin()
+            // }
+            // else {
+            //     window.history.back()
 
-        //     // }
-        // }
+            // }
+        }
         // this.props.setLoading(false)
     }
 

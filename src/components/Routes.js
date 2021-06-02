@@ -6,6 +6,9 @@ import OrdersPage from '../screen/OrdersPage';
 import UsersPage from '../screen/UsersPage';
 import Login from '../screen/Login';
 import App from '../App';
+import { connect } from 'react-redux';
+import path from '../api/path';
+import AddCategory from '../screen/AddCategory';
 
 class Routes extends React.Component {
   render() {
@@ -13,19 +16,28 @@ class Routes extends React.Component {
     // const { type, path, component, logged, } = this.props
 
 // console.log('props',this.props);
-
+console.log(this.props.logged)
     return (
       // <Switch>
       //   {
       //     this.props.user.type=='Pages'  ?
     <>
-        <Route exact path="/" component={Login} />
-        
-        <Route path='/App' component={App} />
+        <Route exact path="/"  />
+        {
+                    this.props.logged ?
+                    <App />
+                    :
+                    <Login />
+
+
+
+                }
+        <Route path='/Login' component={Login} />
         <Route path='/products' component={ProductsPage} />
         <Route path='/catogaries' component={CategoriesPage} />
         <Route path='/order' component={OrdersPage} />
         <Route path='/user' component={UsersPage} />
+        <Route path='/AddCategory' component={AddCategory} />
         
         </>
       //   :
@@ -60,4 +72,11 @@ class Routes extends React.Component {
 //     // _getCoupon: (token) => dispatch(_getCoupon(token))
 //   }
 // }
-export default Routes;
+// export default ;
+const mapState = state => {
+  return {
+      logged: state.authReducer.logged,
+  }
+}
+
+export default connect(mapState, null)(Routes)

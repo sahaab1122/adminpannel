@@ -20,7 +20,7 @@ export const _login = (param) => {
         if (response.success == true) {
            
             dispatch(login(response.result))
-
+            return response
         }
         else {
             // response.success == "false"
@@ -38,7 +38,7 @@ export const _login = (param) => {
 }
 export const _updateuser = (param, _id) => {
 
-    return async (dispatch, getState) => {
+    return async (mapDispatch, getState) => {
 
       console.log(_id)
         let response = await api(path.update +   _id, "PATCH", param);

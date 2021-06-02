@@ -1,3 +1,4 @@
+import path from "./path";
 
 
 
@@ -28,4 +29,23 @@ export default function api(path, method, params) {
             console.log(error.message)
 
         });
+}
+const getUsers = async () => {
+
+    let getData = [];
+    let h = new Headers();
+    // h.append('Authorization', token)
+
+    let req = new Request(path.user, { method: 'GET'})
+
+    await fetch(req)
+        .then(res => res.json())
+        .then((dat) => { getData = dat; })
+        .catch(err => { alert(err.message); getData = false })
+
+    // console.log('get user->', getData)
+    // if (getData?.success === 'false' || getData?.success === 'Auth failed') {
+    //     alert(getData.message + getData?.reason); getData = false
+    // }
+    return getData
 }
