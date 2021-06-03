@@ -152,11 +152,11 @@ class AddCategory extends React.Component {
                                         </div>
                                        
                                     </div>
-                                    <div class="form-group">
+                                    {/* <div class="form-group">
                                         <label htmlFor="file-loader">Select Image</label>
                                         <input maxLength='10' disabled value={ this.state.firebaseLink} class="input form-control lenght" ></input>
                                         <input style={{ display: 'none' }} id="file-loader" type="file" class="input form-control" name="category_bottle" accept="image/*" onChange={(e) => this.setState({ categoryImage: e.target.files[0], firebaseLink: '' })}></input>
-                                    </div>
+                                    </div> */}
                                     <button type="submit" class="btn btn-success">save</button>
                                 </form>
                             </div>
