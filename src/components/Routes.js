@@ -9,6 +9,7 @@ import App from '../App';
 import { connect } from 'react-redux';
 import path from '../api/path';
 import AddCategory from '../screen/AddCategory';
+import Addproduct from '../screen/Addproduct';
 
 class Routes extends React.Component {
   render() {
@@ -37,8 +38,9 @@ console.log(this.props.logged)
         <Route path='/catogaries' component={CategoriesPage} />
         <Route path='/order' component={OrdersPage} />
         <Route path='/user' component={UsersPage} />
-        <Route path='/AddCategory' component={AddCategory} />
         
+        <Route path='/AddCategory' component={AddCategory} />
+        <Route path='/Addproduct' component={Addproduct} />
         </>
       //   :
       //      <>

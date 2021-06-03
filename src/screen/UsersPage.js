@@ -51,8 +51,8 @@ getuser = async (e) => {
 // }
 
   render(){
-    // console.log(this.props.users)
-    // alert(this.props.users)
+    console.log(this.props.users)
+    alert(this.props.users)
   return(
     <div className = "flexible-content" >
         <SideNavigation />
@@ -117,7 +117,7 @@ getuser = async (e) => {
                                                                 <td className='center'>{u.phone}</td>
                                                                 <td className='center'>{u.firstName}</td>
                                                                 <td className='center'>{u.lastName}</td>
-                                                                {/* <td className='center'>{u.avatar}</td> */}
+                                                               
                                                                 {/* <td className='center'>{u.creationDate.slice(0, 15)}</td> */}
                                                                </tr>
                                                         )   
@@ -132,7 +132,7 @@ getuser = async (e) => {
                                                 Showing 1 to 10 of {this.props.users.length} entries
                                             </div>
                                         </div>
-                                        {/* <div class="col-sm-12 col-md-7">
+                                        <div class="col-sm-12 col-md-7">
                                             <div class="dataTables_paginate paging_simple_numbers" id="example1_paginate">
                                                 <ul class="pagination">
                                                     <li class="paginate_button page-item previous disabled" id="example1_previous">
@@ -158,7 +158,7 @@ getuser = async (e) => {
 
                                                 </ul>
                                             </div>
-                                        </div> */}
+                                        </div>
 
                                     </div>
                                 </div>

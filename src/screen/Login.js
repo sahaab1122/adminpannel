@@ -19,12 +19,15 @@ class Login extends React.Component {
         loading: true,
     }
 
-    getusers = async (e) => {
+    login = async (e) => {
         e.preventDefault()
         // this.props.setLoading(true)
-        let res = await this.props._getusers()
+        let res = await this.props._login({
+           email: this.state.email.trim(),
+          password:   this.state.password.trim()
+            } )
         if (res.success === true) {
-            // window.location ="App"
+            window.location ="/App"
             
             // if (this.props.admin) {
             //     this.props.admin()

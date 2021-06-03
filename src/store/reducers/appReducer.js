@@ -1,4 +1,4 @@
-import {  SET_USERS } from '../actions/Types'
+import {  SET_USERS, SET_ITEMS } from '../actions/Types'
 
 const initialState = {
     categories: [], items: [], 
@@ -9,12 +9,7 @@ const initialState = {
 const appReducer = (state = initialState, action) => {
     switch (action.type) {
 
-        // case SET_ITEMS: {
-        //     return {
-        //         ...state,
-        //         items: action.payload,
-        //     }
-        // }
+       
         // case SET_CATEGORY: {
         //     return {
         //         ...state,
@@ -37,6 +32,12 @@ const appReducer = (state = initialState, action) => {
             return {
                 ...state,
                 users: action.payload,
+            }
+        }
+        case SET_ITEMS: {
+            return {
+                ...state,
+                items: action.payload,
             }
         }
         // case SET_COUPON: {

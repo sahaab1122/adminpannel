@@ -1,165 +1,206 @@
-import React from 'react'
-import { MDBRow, MDBCol, MDBView, MDBCard, MDBCardBody, MDBTable, MDBTableHead, MDBTableBody,MDBBtn, } from 'mdbreact';
-import src from '../assets/apple.png';
-import src1 from '../assets/corn.png';
-import src2 from '../assets/dove.png';
-import src3 from '../assets/eggs.png';
-import src4 from '../assets/pan.png';
-import src5 from '../assets/milk.png';
-import src6 from '../assets/sani.png';
-import src7 from '../assets/shirt.png';
+import React from "react";
+
+import '../styles/adminlte.min.css'
+import '../styles/dataTables.bootstrap4.min.css'
+import '../styles/responsive.bootstrap4.min.css'
+import '../styles/index.css'
+// import ResponsiveDrawer from './ResponsiveDrawer'
+// import { connect } from "react-redux";
+// import ConfirmModal from '../components/ConfirmModal'
+// import { _getCategories } from '../Store/middlewares/appMiddleware'
+// import api from "../services/api";
 import SideNavigation from '../components/SideNavigation'
+import { connect } from "react-redux";
+import { _getItems } from "../store/middlewares/appMiddleware";
+
+class ProductsPage extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: "",
+      categoryID: "",
+      description: "",
+      price: "",
+      image: ""
+      // deleteID: '',
+      // showModal: false,
+      // orderdata:[]
+
+    }
+  } async componentDidMount() {
+    let res = await this.props._getItem()
+  }
+  getitem = async (e) => {
+    e.preventDefault()
+    // this.props.setLoading(true)
+    let res = await this.props._getItems({
+
+    })
+    if (res.success === true) {
+      // window.location ="App"
+
+      // if (this.props.admin) {
+      //     this.props.admin()
+      // }
+      // else {
+      //     window.history.back()
+
+      // }
+    }
+    // this.props.setLoading(false)
+  }
+  // async componentDidMount(){
+  //     console.log(this.props);
+
+  //     let res = await api.getCategory();
+  //     console.log(res.result);
+  //     this.setState({orderdata:res.result})
+  // }
 
 
-const ProductsPage =  () => {
-  return (
-    <div className="flexible-content">
+  // deleteHandler = async () => {
+  //     console.log(this.state.deleteID)
+  //     this.setState({ showModal: false })
+  //     let res = await api.deleteCategory( this.state.deleteID)
+  //     if (res) {
+  //         window.location.reload();
+
+  //     }
+  // }
+
+  render() {
+    console.log(this.props.items)
+    alert(this.props.items)
+    return (
+      <div className="flexible-content" >
         <SideNavigation />
         <main id="content" className="p-5">
-    <>
-      <MDBRow>
-      <MDBCol md="12">
-        <MDBCard className="mt-2 ">
-          <MDBView className="gradient-card-header brown darken-2">
-            <h4 className="h4-responsive text-white font-bold">Products</h4>
-          </MDBView>
-          <MDBCardBody className="scrolling-wrapper">
+          <div className="dashboard" style={{ paddingTop: 100 }}>
+            {/* <ResponsiveDrawer /> */}
+            <section class="content-admin">
 
-            <h3 className=" text-left"><strong>Add, edit, remove and list product here.</strong></h3>
-            {/* <p>Use prop striped to add zebra-striping to any table row within the table body</p> */}
-            {/* <MDBFormInline className="md-form m-0 pull-right">
-                <input className="form-control form-control-sm " type="search" placeholder="Type your query" aria-label="Search"/>
-                <MDBBtn size="sm" color="primary" className="my-0" type="submit"><MDBIcon icon="search" /></MDBBtn>
-            </MDBFormInline> */}
-            <MDBTable striped>
-              <MDBTableHead>
-                <tr>
-                  <th>Id</th>
-                  <th>Image</th>
-                  <th>Name</th>
-                  <th>Quantity</th>
-                  <th>Regular Price</th>
-                  {/* <th>Offer</th> */}
-                  <th>Description</th>
-                  {/* <th>Delivery Instructions</th> */}
-                  <th>Action</th>
-                </tr>
-              </MDBTableHead>
-              <MDBTableBody>
-                <tr>
-                  <td>1</td>
-                  <td><img src={src} alt="Project" className="img-fluid"/></td>
-                  <td>Apple</td>
-                  <td>5</td>
-                  <td>150</td>
-                  {/* <td>0%</td> */}
-                  <td>Apples from limpopo</td>
-                  {/* <td>Same Day</td> */}
-                  <MDBBtn size="sm" outline color="brown">Edite</MDBBtn>
-                  <MDBBtn size="sm" outline color="brown">Delete</MDBBtn>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td><img src={src1} alt="Project" className="img-fluid"/></td>
-                  <td>Corn Flakes</td>
-                  <td>5</td>
-                  <td>250</td>
-                  {/* <td>5%</td> */}
-                  <td>Kellogs Corn Flakes for a healthy <br/> power breakfast</td>
-                  {/* <td>Same Day</td> */}
-                  <MDBBtn size="sm" outline color="brown">Edite</MDBBtn>
-                  <MDBBtn size="sm" outline color="brown">Delete</MDBBtn>
-                </tr>
-                <tr>
-                  <td>3</td>
-                  <td><img src={src2} alt="Project" className="img-fluid"/></td>
-                  <td>Dove Shampoo</td>
-                  <td>500ml</td>
-                  <td>300</td>
-                  {/* <td>0%</td> */}
-                  <td>Dove shampoo for silky smooth hair</td>
-                  {/* <td>Same Day</td> */}
-                  <MDBBtn size="sm" outline color="brown">Edite</MDBBtn>
-                  <MDBBtn size="sm" outline color="brown">Delete</MDBBtn>
-                </tr>
-                <tr>
-                  <td>4</td>
-                  <td><img src={src3} alt="Project" className="img-fluid"/></td>
-                  <td>Farm Fresh Eggs</td>
-                  <td>12</td>
-                  <td>150</td>
-                  {/* <td>0%</td> */}
-                  <td>Farm fresh eggs for daily protein</td>
-                  {/* <td>Same Day</td> */}
-                  <MDBBtn size="sm" outline color="brown">Edite</MDBBtn>
-                  <MDBBtn size="sm" outline color="brown">Delete</MDBBtn>
-                </tr>
-                <tr>
-                  <td>5</td>
-                  <td><img src={src4} alt="Project" className="img-fluid"/></td>
-                  <td>Pancakes</td>
-                  <td>10</td>
-                  <td>200</td>
-                  {/* <td>0%</td> */}
-                  <td>Fresh ready to eat pancakes for <br/> the sweet toothed</td>
-                  {/* <td>Same Day</td> */}
-                  <MDBBtn size="sm" outline color="brown">Edite</MDBBtn>
-                  <MDBBtn size="sm" outline color="brown">Delete</MDBBtn>
-                </tr>
-                <tr>
-                  <td>6</td>
-                  <td><img src={src5} alt="Project" className="img-fluid"/></td>
-                  <td>Milk</td>
-                  <td>5L</td>
-                  <td>350</td>
-                  {/* <td>0%</td> */}
-                  <td>Fresh non fat milk</td>
-                  {/* <td>Same Day</td> */}
-                  <MDBBtn size="sm" outline color="brown">Edite</MDBBtn>
-                  <MDBBtn size="sm" outline color="brown">Delete</MDBBtn>
-                </tr>
-                <tr>
-                  <td>7</td>
-                  <td><img src={src6} alt="Project" className="img-fluid"/></td>
-                  <td>Sanitizer</td>
-                  <td>500ml</td>
-                  <td>150</td>
-                  {/* <td>0%</td> */}
-                  <td>Hand sanitizer for daily hygiene</td>
-                  {/* <td>Same Day</td> */}
-                  <MDBBtn size="sm" outline color="brown">Edite</MDBBtn>
-                  <MDBBtn size="sm" outline color="brown">Delete</MDBBtn>
-                </tr>
-                <tr>
-                  <td>8</td>
-                  <td><img src={src7} alt="Project" className="img-fluid"/></td>
-                  <td>TShirt</td>
-                  <td>5</td>
-                  <td>1500</td>
-                  {/* <td>0%</td> */}
-                  <td>Its very confirtable in Hot days</td>
-                  {/* <td>Same Day</td> */}
-                  <MDBBtn size="sm" outline color="brown">Edite</MDBBtn>
-                  <MDBBtn size="sm" outline color="brown">Delete</MDBBtn>
-                  <MDBBtn size="sm" outline color="brown">Add product</MDBBtn>
-                </tr>
-                
-              </MDBTableBody>
-            </MDBTable>
-          </MDBCardBody>
-        </MDBCard>
-      </MDBCol>
-    </MDBRow>
-    </>
-    </main>
-    </div>
-  )
+              <div class="container-fluid">
+                <div class="row">
+                  <div class="col-md-12">
+                    <tfooter>
+                    </tfooter>
+                    <div id="example1_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
+                      <div class="row">
+                        <div class="col-sm-12 col-md-6">
+                          <div class="dataTables_length" id="example1_length">
+                            <label>Show <select name="example1_length" aria-controls="example1" class="custom-select custom-select-sm form-control form-control-sm">
+                              <option value="10">10</option>
+                              <option value="25">25</option>
+                              <option value="50">50</option>
+                              <option value="100">100</option>
+                            </select>
+                                        entries
+                                        </label>
+                          </div>
+                        </div>
+                        <div class="col-sm-12 col-md-6">
+                          <div id="example1_filter" class="dataTables_filter">
+                            <label>Search:
+                                                    <input type="search" class="form-control form-control-sm" placeholder="" aria-controls="example1"></input>
+                            </label>
+                          </div>
+                        </div>
+
+
+                      </div>
+                      <div class="row">
+                        <div class="col-sm-12">
+                          <table id="example1" class="table table-bordered table-hover dataTable no-footer dtr-inline" role="grid" aria-describedby="example1_info">
+                            <thead>
+                              <tr role="row">
+                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Sr.#: activate to sort column ascending">
+                                  Sr.#
+                                                            </th>
+                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Bottle Image: activate to sort column ascending">
+                                  Name
+                                                                    </th>
+                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Bottle Image: activate to sort column ascending">
+                                  Image
+                                                                    </th>
+
+                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Category: activate to sort column ascending">
+                                  Description
+                                                                        </th>
+
+                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="edit: activate to sort column ascending">
+                                  Delete
+                                                            </th>
+                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="edit: activate to sort column ascending">
+                                  Edit
+                                                            </th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              {
+                                this.props.items.map((items, index) =>
+                                  <tr key={index} role="row" class="odd">
+                                    <td tabindex="0" class="">{index + 1}</td>
+                                    <td class="sorting_1">
+                                      {items.name}
+                                    </td>
+                                    <td>
+
+                                      <img src={items.image || "./viewitemhtml_files/1603476881.png"} style={{ width: "80px", height: "80px" }}></img>
+
+                                    </td>
+
+                                    <td>{items.description}</td>
+
+
+                                    {/* <td><a onClick={() => this.setState({ showModal: true, deleteID: item.id })} className="btn btn-danger white">Delete</a></td> */}
+                                    {/* <td><a href={'/admin/addItem?id=' + item.itemID} className="btn btn-info white">Edit</a></td> */}
+                                  </tr>
+                                )
+                              }
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-sm-12 col-md-5">
+                          {/* <div class="dataTables_info" id="example1_info" role="status" aria-live="polite">Showing 1 to 6 of {this.props.categories.length} entries</div></div><div class="col-sm-12 col-md-7"><div class="dataTables_paginate paging_simple_numbers" id="example1_paginate"><ul class="pagination"><li class="paginate_button page-item previous disabled" id="example1_previous"><a href="https://clinkdelivery.com/admin/categories#" aria-controls="example1" data-dt-idx="0" tabindex="0" class="page-link">Previous</a></li><li class="paginate_button page-item active"><a href="https://clinkdelivery.com/admin/categories#" aria-controls="example1" data-dt-idx="1" tabindex="0" class="page-link">1</a></li><li class="paginate_button page-item next disabled" id="example1_next"><a href="https://clinkdelivery.com/admin/categories#" aria-controls="example1" data-dt-idx="2" tabindex="0" class="page-link">Next</a></li></ul></div></div></div></div> */}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div></div>
+            </section>
+            {/* {
+              this.state.showModal &&
+              <ConfirmModal onCancelClick={() => this.setState({ showModal: true })}
+                onDoClick={this.deleteHandler} />
+            } */}
+
+          </div>
+        </main>
+      </div>
+    )
+
+  }
 }
 
-export default ProductsPage;
+
+const mapState = state => {
+  return {
+    logged: state.authReducer.logged,
+    // user: state.authReducer.user,
+    items: state.appReducer.items,
+
+  }
+}
+const mapDispatch = dispatch => {
+  return {
+    // _login: (param) => dispatch(_login(param)),
+    // setLoading: (bol) => dispatch(_setLoading(bol)),
+    _getItem: () => dispatch(_getItems())
 
 
-
-
-
-
+  }
+}
+export default connect(mapState, mapDispatch)(ProductsPage)
