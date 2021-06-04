@@ -48,37 +48,34 @@ addProduct = async (e) => {
         "price": this.state.price,
         "image": this.state.image,
     }
-    let response = await api(path.itemsadd, "POST", param).
+    let response = await api(path.itemsadd, "POST", param)
     // alert(response.message)
     console.log(response.message)
     alert(response.message)
 }
 
-registerHandler = async (e) => {
-    e.preventDefault()
-    
-    // this.props.setLoading(true)
-    let items = {
-        name: this.state.name.trim(),
+// uploadImage = async (uri,) => { 
         
-        categoryID: this.state.categoryID.trim(),
-        description: this.state.description,
-        price: this.state.price.trim(),
-        image: this.state.image,
-       
+//     const response = await fetch(uri);
+//     const blob = await response.blob();
+//     let folderName = 'item'
+//     let fileName = this.props.items.name
+//     var ref = firebase.storage().ref().child(folderName + "/" + fileName );
+//      ref.put(blob) .then(() =>{
+//         firebase.storage().ref().child(folderName + "/" + fileName ).getDownloadURL()
+//         .then((URL) =>{
+//             this.setState({image: URL},()=>{
+//                 this.addProduct()
+           
+            
+//             })
 
-
-
-    }
-    // let res = await api.itemsadd(items)
-    // if (res) {
-    //     await this.props._login(this.state.email, this.state.password)
-    //     window.location.replace("/")
-
-
-    // }
-    // this.props.setLoading(false)
-}
+//         })
+//      })
+    // .catch(() =>{
+    //     alert("error")
+    // })
+// }
 
 
 
@@ -173,7 +170,7 @@ registerHandler = async (e) => {
     render() {
        
         
-            console.log(this.props.items)
+            // console.log(this.props.items)
         
 
 
@@ -227,7 +224,10 @@ registerHandler = async (e) => {
                                                 </div>
 
                                             </div>
-
+                                             <div class="form-group">
+                                                <label htmlFor="file-loader">Select Image</label>
+                                                <input type="file"  />
+                                            </div>
                                             {/* <div class="form-group">
                                                 <label htmlFor="file-loader">Select Image</label>
                                                 <input maxLength='10' disabled value={this.state.image?.name ? this.state.image.name : this.state.firebaseLink} class="input form-control lenght" ></input>

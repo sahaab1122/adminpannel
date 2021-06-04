@@ -8,5 +8,7 @@ export default {
     update: BASE_URL + 'update/',
     getuser: BASE_URL + 'users',
     itemsadd: BASE_URL +'items/add',
-    getitem: BASE_URL + 'items'
+    getitem: BASE_URL + 'items',
+    categoriesadd: BASE_URL + 'categories/add',
+    getcategories: BASE_URL + 'categories'
 }

@@ -11,7 +11,7 @@ import '../styles/index.css'
 // import api from "../services/api";
 import SideNavigation from '../components/SideNavigation'
 import { connect } from "react-redux";
-import { _getItems } from "../store/middlewares/appMiddleware";
+import { _getCategories } from "../store/middlewares/appMiddleware";
 
 class CategoriesPage extends React.Component {
 
@@ -29,12 +29,12 @@ class CategoriesPage extends React.Component {
 
     }
   } async componentDidMount() {
-    let res = await this.props._getItem()
+    let res = await this.props._getCategories()
   }
-  getitem = async (e) => {
+  getcategorie = async (e) => {
     e.preventDefault()
     // this.props.setLoading(true)
-    let res = await this.props._getItems({
+    let res = await this.props._getCategories({
 
     })
     if (res.success === true) {
@@ -70,7 +70,7 @@ class CategoriesPage extends React.Component {
   // }
 
   render() {
-    console.log(this.props.items)
+    console.log(this.props.categories)
     // alert(this.props.items)
     return (
       <div className="flexible-content" >
@@ -120,13 +120,16 @@ class CategoriesPage extends React.Component {
                                 <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Bottle Image: activate to sort column ascending">
                                   Name
                                                                     </th>
+                                                                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Bottle Image: activate to sort column ascending">
+                                  ID
+                                                                    </th>
                                 <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Bottle Image: activate to sort column ascending">
                                   Image
-                                                                    </th>
+                                                                    </th> 
 
-                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Category: activate to sort column ascending">
+                               <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Category: activate to sort column ascending">
                                   Description
-                                                                        </th>
+                                                                        </th> 
 
                                 <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="edit: activate to sort column ascending">
                                   Delete
@@ -138,19 +141,19 @@ class CategoriesPage extends React.Component {
                             </thead>
                             <tbody>
                               {
-                                this.props.items.map((items, index) =>
+                                this.props.categories.map((categories, index) =>
                                   <tr key={index} role="row" class="odd">
                                     <td tabindex="0" class="">{index + 1}</td>
                                     <td class="sorting_1">
-                                      {items.name}
+                                      {categories.name}
                                     </td>
                                     <td>
 
-                                      <img src={items.image || "./viewitemhtml_files/1603476881.png"} style={{ width: "80px", height: "80px" }}></img>
+                                      <img src={categories.image || "./viewitemhtml_files/1603476881.png"} style={{ width: "80px", height: "80px" }}></img>
 
                                     </td>
 
-                                    <td>{items.description}</td>
+                                    <td>{categories.description}</td>
 
 
                                     {/* <td><a onClick={() => this.setState({ showModal: true, deleteID: item.id })} className="btn btn-danger white">Delete</a></td> */}
@@ -190,7 +193,7 @@ const mapState = state => {
   return {
     logged: state.authReducer.logged,
     // user: state.authReducer.user,
-    items: state.appReducer.items,
+    categories: state.appReducer.categories,
 
   }
 }
@@ -198,7 +201,7 @@ const mapDispatch = dispatch => {
   return {
     // _login: (param) => dispatch(_login(param)),
     // setLoading: (bol) => dispatch(_setLoading(bol)),
-    _getItem: () => dispatch(_getItems())
+    _getCategories: () => dispatch(_getCategories())
 
 
   }

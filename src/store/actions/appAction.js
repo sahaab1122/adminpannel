@@ -1,8 +1,8 @@
-import { SET_CATEGORY, SET_COUPON, SET_FAVOURITE, SET_FEATURED, SET_ITEMS, SET_ORDERS, SET_TRANSACTIONS, SET_USERS } from "./Types";
+import { SET_CATEGORIES, SET_COUPON, SET_FAVOURITE, SET_FEATURED, SET_ITEMS, SET_ORDERS, SET_TRANSACTIONS, SET_USERS } from "./Types";
 
-export const set_category = (payload) => (
+export const set_categories = (payload) => (
     {
-        type: SET_CATEGORY,
+        type: SET_CATEGORIES,
         payload
     }
 )
@@ -12,6 +12,7 @@ export const set_items = (payload) => (
         payload
     }
 )
+
 export const set_favourite = (payload) => (
     {
         type: SET_FAVOURITE,

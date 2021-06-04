@@ -12,6 +12,7 @@ import '../styles/index.css'
 import SideNavigation from '../components/SideNavigation'
 import { connect } from "react-redux";
 import { _getItems } from "../store/middlewares/appMiddleware";
+import { Button } from "react-bootstrap";
 
 class ProductsPage extends React.Component {
 
@@ -37,17 +38,7 @@ class ProductsPage extends React.Component {
     let res = await this.props._getItems({
 
     })
-    if (res.success === true) {
-      // window.location ="App"
 
-      // if (this.props.admin) {
-      //     this.props.admin()
-      // }
-      // else {
-      //     window.history.back()
-
-      // }
-    }
     // this.props.setLoading(false)
   }
   // async componentDidMount(){
@@ -71,7 +62,7 @@ class ProductsPage extends React.Component {
 
   render() {
     console.log(this.props.items)
-    alert(this.props.items)
+    // alert(this.props.items)
     return (
       <div className="flexible-content" >
         <SideNavigation />
@@ -131,15 +122,15 @@ class ProductsPage extends React.Component {
                                 <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="edit: activate to sort column ascending">
                                   Delete
                                                             </th>
-                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="edit: activate to sort column ascending">
+                                {/* <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="edit: activate to sort column ascending">
                                   Edit
-                                                            </th>
+                                                            </th> */}
                               </tr>
                             </thead>
                             <tbody>
                               {
                                 this.props.items.map((items, index) =>
-                                  <tr key={index} role="row" class="odd">
+                                  <tr role="row" class="odd">
                                     <td tabindex="0" class="">{index + 1}</td>
                                     <td class="sorting_1">
                                       {items.name}
@@ -152,7 +143,11 @@ class ProductsPage extends React.Component {
 
                                     <td>{items.description}</td>
 
-
+                                    <td>
+                                      <Button>
+                                        delete
+                                       </Button>
+                                    </td>
                                     {/* <td><a onClick={() => this.setState({ showModal: true, deleteID: item.id })} className="btn btn-danger white">Delete</a></td> */}
                                     {/* <td><a href={'/admin/addItem?id=' + item.itemID} className="btn btn-info white">Edit</a></td> */}
                                   </tr>
@@ -171,7 +166,11 @@ class ProductsPage extends React.Component {
                   </div>
                 </div></div>
             </section>
+
+
+
             {/* {
+
               this.state.showModal &&
               <ConfirmModal onCancelClick={() => this.setState({ showModal: true })}
                 onDoClick={this.deleteHandler} />

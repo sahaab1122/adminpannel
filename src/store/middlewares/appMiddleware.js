@@ -2,7 +2,7 @@
 // import { setError, setLoading } from '../actions/globalActions'
 import api from '../../api/api';
 import path from '../../api/path';
-import { set_items, set_category, set_favourite, set_featured, set_user, set_coupon, set_orders, set_transactions } from '../actions/appAction'
+import { set_items, set_categories, set_favourite, set_featured, set_user, set_coupon, set_orders, set_transactions } from '../actions/appAction'
 
 
 export const _getFeatured = () => {
@@ -15,16 +15,16 @@ export const _getFeatured = () => {
         }
     }
 }
-export const _getCategories = () => {
+// export const _getCategories = () => {
 
-    return async (dispatch, getState) => {
+//     return async (dispatch, getState) => {
 
-        let res = await api.getCategory();
-        if (res) {
-            dispatch(set_category(res.result))
-        }
-    }
-}
+//         let res = await api.getCategory();
+//         if (res) {
+//             dispatch(set_category(res.result))
+//         }
+//     }
+// }
 export const _getFavourite = () => {
 
     return async (dispatch, getState) => {
@@ -53,11 +53,21 @@ export const _getItems = () => {
 
         let res = await api(path.getitem, "GET",);
         if (res) {
-            // dispatch(set_items(res.result))
+            dispatch(set_items(res.result))
         }
     }
 }
- 
+export const _getCategories = () => {
+
+    return async (dispatch, getState) => {
+
+
+        let res = await api(path.getcategories, "GET",);
+        if (res) {
+            dispatch(set_categories(res.result))
+        }
+    }
+} 
  
  
 
