@@ -24,17 +24,7 @@ getuser = async (e) => {
   let res = await this.props._getUsers({
      
       } )
-  if (res.success === true) {
-      // window.location ="App"
-      
-      // if (this.props.admin) {
-      //     this.props.admin()
-      // }
-      // else {
-      //     window.history.back()
-
-      // }
-  }
+  
   // this.props.setLoading(false)
 }
   // state = {
@@ -108,15 +98,15 @@ getuser = async (e) => {
                                                 </thead>
                                                 <tbody>
                                                     {
-                                                        this.props.users.map((u, index) =>
+                                                        this.props.users.map((users, index) =>
                                                             <tr role="row" class="odd">
                                                                 <td className='center' class="sorting_1">{index + 1}</td>
-                                                                <td className='center' style={{ textAlign: 'center' }}><img style={{ width: 100 }} src={u.avatar} alt='noIamge' /></td>
-                                                                <td className='center'>{u.email}</td>
-                                                                <td className='center'>{u.city}</td>
-                                                                <td className='center'>{u.phone}</td>
-                                                                <td className='center'>{u.firstName}</td>
-                                                                <td className='center'>{u.lastName}</td>
+                                                                <td className='center' style={{ textAlign: 'center' }}><img style={{ width: 100 }} src={users.avatar} alt='noIamge' /></td>
+                                                                <td className='center'>{users.email}</td>
+                                                                <td className='center'>{users.city}</td>
+                                                                <td className='center'>{users.phone}</td>
+                                                                <td className='center'>{users.firstName}</td>
+                                                                <td className='center'>{users.lastName}</td>
                                                                
                                                                 {/* <td className='center'>{u.creationDate.slice(0, 15)}</td> */}
                                                                </tr>

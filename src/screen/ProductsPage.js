@@ -14,6 +14,8 @@ import { connect } from "react-redux";
 import { _deleteItems, _getItems } from "../store/middlewares/appMiddleware";
 import { Button } from "react-bootstrap";
 import { _deleteitem } from "../store/middlewares/authMiddleware";
+import api from "../api/api";
+import path from "../api/path";
 
 class ProductsPage extends React.Component {
 
@@ -46,21 +48,15 @@ class ProductsPage extends React.Component {
 
 
 
-//   deleteItem = async (e) => {
+  deleteItem = async (_id) => {
+    // alert(path.deleteitem+_id)
+    console.log("delting item")
+     api(path.deleteitem  +'/'+_id, "DELETE").then(res=>{
+     console.log(res)
+   })
 
-//     // this.props.setLoading(true)
-//     let param = {
-//         "name": this.state.name,
-//         "image": this.state.image,
-//         "description": this.state.description,
-//         // "city": this.state.city,
-//         // "avatar":this.state.avatar,
-//     }
-
-//     let res = await this.props._deleteitem( this.state.items)
-
-//     // this.props.setLoading(false)
-// }
+    // alert(_id)
+}
 
 
 
@@ -169,9 +165,9 @@ class ProductsPage extends React.Component {
                                     <td>{items.description}</td>
 
                                     <td>
-                                      <Button >
+                                      <button onClick={()=> this.deleteItem(items._id)}>
                                         delete
-                                       </Button>
+                                       </button>
                                     </td>
                                     {/* <td><a onClick={() => this.setState({ showModal: true, deleteID: item.id })} className="btn btn-danger white">Delete</a></td> */}
                                     {/* <td><a href={'/screen/UpdateProduct?id=' + items.itemID} className="btn btn-info white">Edit</a></td> */}

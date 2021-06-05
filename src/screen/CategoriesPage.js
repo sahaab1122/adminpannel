@@ -147,13 +147,17 @@ class CategoriesPage extends React.Component {
                                     <td class="sorting_1">
                                       {categories.name}
                                     </td>
+                                    <td class="sorting_1">
+                                      {categories.id}
+                                    </td>
                                     <td>
 
                                       <img src={categories.image || "./viewitemhtml_files/1603476881.png"} style={{ width: "80px", height: "80px" }}></img>
 
                                     </td>
 
-                                    <td>{categories.description}</td>
+                                    <td class="sorting_1">
+                                      {categories.descriptions}</td>
 
 
                                     {/* <td><a onClick={() => this.setState({ showModal: true, deleteID: item.id })} className="btn btn-danger white">Delete</a></td> */}

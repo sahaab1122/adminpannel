@@ -31,150 +31,59 @@ class AddCategory extends React.Component {
             // firebaseLink: '',
             // progress: 0, edit: false,
             name: "",
-            categoryID:"",
-            description:"",
-            price:"",
-            image:""
-           
+            categoryID: "",
+            description: "",
+            price: "",
+            image: ""
+
         }
     }
-
-AddCategory = async (e) => {
-    e.preventDefault()
-    let param = {
-        "name": this.state.name,
-        "categoryID": this.state.categoryID,
-        "description": this.state.description,
-        "price": this.state.price,
-        "image": this.state.image,
-        // "categoryID": this.state.categoryID,
-       
-    }
-    let response = await api(path.categoriesadd, "POST", param)
-    // alert(response.message)
-    console.log(response.message)
-    alert(response.message)
-}
-
-registerHandler = async (e) => {
-    e.preventDefault()
-    
-    // this.props.setLoading(true)
-    let categories = {
-        name: this.state.name.trim(),
-        
-        // categoryID: this.state.categoryID.trim(),
-      
-       
+    uploadImage = async (e) => {
+        e.preventDefault()
+        let file = this.state.image
+        let folderName = 'categories'
+        let fileName = this.state.name + '_' + new Date().toISOString()
+        var ref = firebase.storage().ref().child(folderName + "/" + fileName);
+        ref.put(file).then(() => {
+            firebase.storage().ref().child(folderName + "/" + fileName).getDownloadURL()
+                .then((URL) => {
+                    this.setState({ image: URL }, () => {
+                        this.AddCategory()
 
 
+                    })
+
+                })
+        })
 
     }
-    // let res = await api.itemsadd(items)
-    // if (res) {
-    //     await this.props._login(this.state.email, this.state.password)
-    //     window.location.replace("/")
+    AddCategory = async (e) => {
+       
+        let param = {
+            "name": this.state.name,
+            "categoryID": this.state.categoryID,
+            "description": this.state.description,
+            "price": this.state.price,
+            "image": this.state.image,
+            // "categoryID": this.state.categoryID,
 
+        }
+        let response = await api(path.categoriesadd, "POST", param)
+        // alert(response.message)
+        console.log(response.message)
+        alert(response.message)
+    }
 
-    // }
-    // this.props.setLoading(false)
-}
-
-
-
-
-
-
-    // componentDidMount() {
-    //     const search = this.props.location.search; // returns the URL query String
-    //     const params = new URLSearchParams(search);
-    //     const id = parseInt(params.get('id'));
-    //     if (id) {
-    //         let item = this.props.categories.filter(c => c.categoryID === id)
-    //         item = item[0];
-
-    //         this.setState({
-    //             categoryName: item.categoryName, categoryNameArabic: item.categoryNameArabic,
-    //             categoryDescription: item.categoryDescription,
-    //             categoryDescriptionArabic: item.categoryDescriptionArabic,
-    //             categoryID: item.categoryID, firebaseLink: item.categoryImage, edit: true,
-    //         })
-    //     }
-    // }
-// use in previous
-    // uploadHandler = (e) => {
-    //     e.preventDefault();
-    //     this.setState({ message: false })
-    //     if (this.props.loading)
-    //         return;
-
-    //     if (this.state.firebaseLink) {
-    //         return this.addCategory(this.state.firebaseLink)
-    //     }
-
-    //     if (!this.state.categoryImage) {
-    //         return alert("please selecet a image")
-    //     }
-
-    //     this.props.setLoading(true)
-    //     let file = this.state.categoryImage
-    //     let name = this.state.categoryName
-    //     let dir = 'category'
-    //     let t = this;
-    //     const uploadTask = firebase.storage().ref(dir + '/' + name).put(file)
-    //     uploadTask.on('state_changed', function (snapshot) {
-    //         var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-    //         t.setState({ progress })
-    //     }, function (error) {
-    //         return alert(error.message)
-    //     }, function () {
-    //         firebase.storage().ref(dir).child(name).getDownloadURL()
-    //             .then(url => {
-    //                 t.addCategory(url)
-    //             })
-    //     });
-
-
-    // }
-
-    // addCategory = async (url) => {
-    //     this.props.setLoading(true)
-    //     await this.setState({ firebaseLink: url })
-    //     let category = {
-    //         categoryID: this.state.categoryID,
-    //         categoryName: this.state.categoryName,
-
-    //         categoryDescription: this.state.categoryDescription,
-
-    //         categoryImage: this.state.firebaseLink,
-    //     }
-
-        //     let res;
-
-        //     if (this.state.edit) {
-        //         res = await api.editCategory(this.props.token, category)
-        //     }
-        //     else {
-
-        //         res = await api.addCategory(this.props.token, category)
-        //     }
-        //     if (res) {
-        //         this.setState({ message: 'Operation successfull' })
-        //         await this.props._getCategory()
-        //         if (this.state.edit) {
-        //             window.location.reload()
-        //         }
-        //     }
-        //     this.setState({ progress: 0 })
-        //     this.props.setLoading(false)
-        // }
-    // }
-
+    pickImage = (e) => {
+        e.preventDefault()
+        if (e.target.files)
+            this.setState({ image: e.target.files[0] })
+    }
     render() {
-       
-        
-            console.log(this.props.categories)
-        
+
+
+        console.log(this.props.categories)
+
 
 
         return (
@@ -195,7 +104,7 @@ registerHandler = async (e) => {
                                 </div>
                             }
                             <div class="container-fluid">
-                                <form onSubmit={this.AddCategory} >
+                                <form onSubmit={this.uploadImage} >
                                     <div class="row">
                                         <div class="col-md-12">
                                             <input type="hidden" name="_token" value="hrxeTL0t5hnBVb8Q3Q4vTc42CXU88qyd320Luzkv"></input>
@@ -206,10 +115,10 @@ registerHandler = async (e) => {
 
 
                                                 </div>
-                                              
+
                                                 <div class="form-group col-md-6">
                                                     <label>Categories ID</label>
-                                                    <input type="text" name="name" placeholder="0122" required class="form-control" onChange={(e) => this.setState({categoryID : e.target.value })}></input>
+                                                    <input type="text" name="name" placeholder="0122" required class="form-control" onChange={(e) => this.setState({ categoryID: e.target.value })}></input>
 
 
                                                 </div>
@@ -223,11 +132,19 @@ registerHandler = async (e) => {
 
                                             </div>
                                             <div class="form-group col-md-6">
-                                                    <label>Categories ID</label>
-                                                    <input type="text" name="name" placeholder="0122" required class="form-control" onChange={(e) => this.setState({categoryID : e.target.value })}></input>
+                                                <div>
+                                                    <label>Price</label>
+                                                    <input type="text" name="name" placeholder="0122" required class="form-control" onChange={(e) => this.setState({ price: e.target.value })}></input>
 
 
                                                 </div>
+
+                                            </div>
+                                            
+                                            <div class="form-group">
+                                                <label htmlFor="file-loader">Select Image</label>
+                                                <input type="file" onChange={this.pickImage} />
+                                            </div>
                                             {/* <div class="form-group">
                                                 <label htmlFor="file-loader">Select Image</label>
                                                 <input maxLength='10' disabled value={this.state.image?.name ? this.state.image.name : this.state.firebaseLink} class="input form-control lenght" ></input>

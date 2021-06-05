@@ -42,7 +42,7 @@ export const _getUsers = () => {
 
         let res = await api(path.getuser, "GET",)
         if (res) {
-            // dispatch(set_user(res.result))
+            dispatch(set_user(res.result))
         }
     }
 }
