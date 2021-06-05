@@ -57,6 +57,17 @@ export const _getItems = () => {
         }
     }
 }
+export const _deleteItems = () => {
+
+    return async (dispatch, getState) => {
+
+
+        let res = await api(path.deleteItem, "DELETE",);
+        if (res) {
+            // dispatch(set_items(res.result))
+        }
+    }
+}
 export const _getCategories = () => {
 
     return async (dispatch, getState) => {

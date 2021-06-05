@@ -11,8 +11,9 @@ import '../styles/index.css'
 // import api from "../services/api";
 import SideNavigation from '../components/SideNavigation'
 import { connect } from "react-redux";
-import { _getItems } from "../store/middlewares/appMiddleware";
+import { _deleteItems, _getItems } from "../store/middlewares/appMiddleware";
 import { Button } from "react-bootstrap";
+import { _deleteitem } from "../store/middlewares/authMiddleware";
 
 class ProductsPage extends React.Component {
 
@@ -41,6 +42,30 @@ class ProductsPage extends React.Component {
 
     // this.props.setLoading(false)
   }
+  
+
+
+
+//   deleteItem = async (e) => {
+
+//     // this.props.setLoading(true)
+//     let param = {
+//         "name": this.state.name,
+//         "image": this.state.image,
+//         "description": this.state.description,
+//         // "city": this.state.city,
+//         // "avatar":this.state.avatar,
+//     }
+
+//     let res = await this.props._deleteitem( this.state.items)
+
+//     // this.props.setLoading(false)
+// }
+
+
+
+
+
   // async componentDidMount(){
   //     console.log(this.props);
 
@@ -122,9 +147,9 @@ class ProductsPage extends React.Component {
                                 <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="edit: activate to sort column ascending">
                                   Delete
                                                             </th>
-                                {/* <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="edit: activate to sort column ascending">
+                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="edit: activate to sort column ascending">
                                   Edit
-                                                            </th> */}
+                                                            </th>
                               </tr>
                             </thead>
                             <tbody>
@@ -144,12 +169,12 @@ class ProductsPage extends React.Component {
                                     <td>{items.description}</td>
 
                                     <td>
-                                      <Button>
+                                      <Button >
                                         delete
                                        </Button>
                                     </td>
                                     {/* <td><a onClick={() => this.setState({ showModal: true, deleteID: item.id })} className="btn btn-danger white">Delete</a></td> */}
-                                    {/* <td><a href={'/admin/addItem?id=' + item.itemID} className="btn btn-info white">Edit</a></td> */}
+                                    {/* <td><a href={'/screen/UpdateProduct?id=' + items.itemID} className="btn btn-info white">Edit</a></td> */}
                                   </tr>
                                 )
                               }
@@ -197,7 +222,8 @@ const mapDispatch = dispatch => {
   return {
     // _login: (param) => dispatch(_login(param)),
     // setLoading: (bol) => dispatch(_setLoading(bol)),
-    _getItem: () => dispatch(_getItems())
+    _getItem: () => dispatch(_getItems()),
+    _deleteItem:() => dispatch(_deleteItems())
 
 
   }
