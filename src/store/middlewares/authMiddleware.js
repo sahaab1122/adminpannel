@@ -59,7 +59,7 @@ export const _deleteitem = (param, _id) => {
     return async (mapDispatch, getState) => {
 
       console.log(_id)
-        let response = await api(path.delte +   _id, "DELETE", param);
+        let response = await api(path.delete +   _id, "DELETE", param);
         console.log(response)
         // dispatch(set_loading(false));
         // if (response.success == true) {
