@@ -139,6 +139,10 @@ class Addproduct extends React.Component {
                                                 <label htmlFor="file-loader">Select Image</label>
                                                 <input type="file"  onChange={this.pickImage} />
                                             </div>
+                                            <div class="form-group">
+                                                <label htmlFor="file-loader">Select Image</label>
+                                                <input type="file"  onChange={this.pickImage} />
+                                            </div>
                                             {/* <div class="form-group">
                                                 <label htmlFor="file-loader">Select Image</label>
                                                 <input maxLength='10' disabled value={this.state.image?.name ? this.state.image.name : this.state.firebaseLink} class="input form-control lenght" ></input>
