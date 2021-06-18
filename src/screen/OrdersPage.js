@@ -2,99 +2,152 @@ import React from 'react'
 import { MDBRow, MDBCol, MDBView, MDBCard, MDBCardBody, MDBTable, MDBTableHead, MDBTableBody, } from 'mdbreact';
 import SideNavigation from "../components/SideNavigation"
 
+
+import '../styles/adminlte.min.css'
+import '../styles/dataTables.bootstrap4.min.css'
+import '../styles/responsive.bootstrap4.min.css'
+import '../styles/index.css'
+
+
+// import ConfirmModal from '../components/ConfirmModal'
+// import OrderDetailModal from '../components/OrderDetailModal'
+// import api from '../services/api'
 const OrdersPage = () => {
   return (
     <div className="flexible-content">
-        <SideNavigation />
-        <main id="content" className="p-5">
-    <>
-      <MDBRow>
-        <MDBCol md="12">
-          <MDBCard className="mt-2 ">
-            <MDBView className="gradient-card-header brown darken-2">
-              <h4 className="h4-responsive text-white font-bold">Orders</h4>
-            </MDBView>
-            <MDBCardBody className="scrolling-wrapper">
+      <SideNavigation />
+      <main id="content" className="p-5">
+        <>
+          <div className="dashboard" style={{ paddingTop: 100 }}>
+            {/* <ResponsiveDrawer /> */}
+            <section class="content-admin">
 
-              <h3 className=" text-left"><strong>Check all your order details here.</strong></h3>
-        
-              {/* <p>Use prop striped to add zebra-striping to any table row within the table body</p> */}
-              {/* <MDBFormInline className="md-form m-0 pull-right">
-                <input className="form-control form-control-sm " type="search" placeholder="Type your query" aria-label="Search"/>
-                <MDBBtn size="sm" color="primary" className="my-0" type="submit"><MDBIcon icon="search" /></MDBBtn>
-            </MDBFormInline> */}
-              <MDBTable striped>
-                <MDBTableHead>
-                  <tr>
-                    <th>Id</th>
-                    <th>created_at</th>
-                    <th>AddressType</th>
-                    <th>Deliverd To</th>
-                    <th>Products Id</th>
-                    <th>productDetails</th>
-                    <th>User Id</th>
-                  </tr>
-                </MDBTableHead>
-                <MDBTableBody>
-                  <tr>
-                    <td>1</td>
-                    <td>Thu Nov 26 2020 19:03:03</td>
-                    <td>Home</td>
-                    <td>Mr junaid</td>
-                    <td>1gWuicZxgdIvo0R6jYsW</td>
-                    <td>Dove Shampoo=2,Corn Flakes=1</td>
-                    <td>TssVjz7IlmNEHGVHII</td>
+              <div class="container-fluid">
+                <div class="row">
+                  <div class="col-md-12">
+                    <tfooter>
+                    </tfooter>
+                    <div id="example1_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
+                      <div class="row">
+                        <div class="col-sm-12 col-md-6">
+                          <div class="dataTables_length" id="example1_length">
+                            <label>Show <select name="example1_length" aria-controls="example1" class="custom-select custom-select-sm form-control form-control-sm">
+                              <option value="10">10</option>
+                              <option value="25">25</option>
+                              <option value="50">50</option>
+                              <option value="100">100</option>
+                            </select>
+                              entries
+                            </label>
+                          </div>
+                        </div>
+                        <div class="col-sm-12 col-md-6">
+                          <div id="example1_filter" class="dataTables_filter">
+                            <label>Search:
+                              <input type="search" class="form-control form-control-sm" placeholder="" aria-controls="example1"></input>
+                            </label>
+                          </div>
+                        </div>
 
-                  </tr>
-                  <tr>
-                    <td>2</td>
 
-                    <td>Wed Dec 12 2020 17:11:51</td>
-                    <td>Home</td>
-                    <td>Mr Ahmad</td>
-                    <td>1gWuicZxgdIvo0R6jYsW</td>
-                    <td>Corn Flakes=9,Dove Shampoo=3,Apple=5</td>
-                    <td>3lKiUK296ocueT4d</td>
+                      </div>
+                      <div class="row">
+                        <div class="col-sm-12">
+                          <table id="example1" class="table table-bordered table-hover dataTable no-footer dtr-inline" role="grid" aria-describedby="example1_info">
+                            <thead>
+                              <tr role="row">
+                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Sr.#: activate to sort column ascending">
+                                  Sr.#
+                                </th>
+                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Bottle Image: activate to sort column ascending">
+                                  User Name
+                                </th>
+                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Bottle Image: activate to sort column ascending">
+                                  Order Date
+                                </th>
+                                {/* <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Bottle Image: activate to sort column ascending">
+                              Order Delivery Date
+                            </th> */}
+                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Category: activate to sort column ascending">
+                                  Item Quantity
+                                </th>
+                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Category: activate to sort column ascending">
+                                  Product Name
+                                </th>
 
-                  </tr>
-                  <tr>
-                    <td>3</td>
-                    <td>Sat Jan 09 2020 06:56:36</td>
-                    <td>Home</td>
-                    <td>Mr Sahaab</td>
-                    <td>1gWuicZxgdIvo0R6jYsW</td>
-                    <td>Apple=1,Corn Flakes=1</td>
-                    <td>LKvcu2KfMyTx4uL</td>
+                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Category: activate to sort column ascending">
+                                  Price
+                                </th>
+                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Category: activate to sort column ascending">
+                                  Action
+                                </th>
 
-                  </tr>
-                  <tr>
-                    <td>4</td>
-                    <td>Wed Feb 17 2021 02:04:24</td>
-                    <td>Home</td>
-                    <td>Mr Husnain</td>
-                    <td>1gWuicZxgdIvo0R6jYsW</td>
-                    <td>Dove Shampoo=2</td>
-                    <td>3lKiUK296ocueT4</td>
-
-                  </tr>
-                  <tr>
-                    <td>5</td>
-                    <td>Thu Mar 11 2021 03:43:10</td>
-                    <td>Home</td>
-                    <td>Mr Usama</td>
-                    <td>1gWuicZxgdIvo0R6jYsW</td>
-                    <td>Corn Flakes=4</td>
-                    <td>YD2lhm4WOsMg</td>
-
-                  </tr>
-                </MDBTableBody>
-              </MDBTable>
-            </MDBCardBody>
-          </MDBCard>
-        </MDBCol>
-      </MDBRow>
-    </>
-    </main>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              {/* { */}
+                              {/* this.state?.orderdata.map((t, index) => */}
+                              {/* <tr role="row" class="odd" key={index}  > */}
+                              {/* <td style={{ textAlign: 'center' }}>{index + 1}</td> */}
+                              {/* <td style={{ textAlign: 'center' }}>{t.customerName}</td> */}
+                              {/* <td style={{ textAlign: 'center' }}>{t.createdat}</td> */}
+                              {/* <td style={{ textAlign: 'center' }}>{new Date(t.deliveryDate).toDateString()}</td> */}
+                              {/* <td style={{ textAlign: 'center' }}>{t.itemquantity}</td> */}
+                              {/* <td style={{ textAlign: 'center' }}>{t.itemName}</td> */}
+                              {/* <td style={{ textAlign: 'center' }}>{t.product_amount}$</td> */}
+                              {/* <td style={{ textAlign: 'center' }} > */}
+                              {/* <a onClick={event => this.setState({ orderID: t.orderID, showDetailModal: true })} style={{ color: '#fff' }} className="btn btn-primary">View</a> */}
+                              {/* <a onClick={() => this.setState({ showModal: true })} style={{ color: '#fff', marginLeft: 5, marginRight: 5 }} className="btn btn-danger">Delete</a> */}
+                              {/* <a href="https://clinkdelivery.com/admin/categories/edit/1" class="btn btn-info">Edit</a> */}
+                              {/* </td> */}
+                              {/* </tr> */}
+                              {/* ) */}
+                              {/* } */}
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                      {/* <div class="row">
+                        <div class="col-sm-12 col-md-5">
+                          <div class="dataTables_info" id="example1_info" role="status" aria-live="polite">Showing 1 to 6 of {this.props.transactions.length} entries
+                          </div>
+                        </div><div class="col-sm-12 col-md-7">
+                          <div class="dataTables_paginate paging_simple_numbers" id="example1_paginate">
+                            <ul class="pagination">
+                              <li class="paginate_button page-item previous disabled" id="example1_previous">
+                                <a href="https://clinkdelivery.com/admin/categories#" aria-controls="example1" data-dt-idx="0" tabindex="0" class="page-link">Previous
+                                </a>
+                              </li>
+                              <li class="paginate_button page-item active">
+                                <a href="https://clinkdelivery.com/admin/categories#" aria-controls="example1" data-dt-idx="1" tabindex="0" class="page-link">1
+                                </a>
+                              </li>
+                              <li class="paginate_button page-item next disabled" id="example1_next">
+                                <a href="https://clinkdelivery.com/admin/categories#" aria-controls="example1" data-dt-idx="2" tabindex="0" class="page-link">Next</a>
+                              </li>
+                            </ul>
+                          </div>
+                        </div> */}
+                      {/* </div> */}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+            {/* {
+          this.state.showModal &&
+          <ConfirmModal onDoClick={() => this.setState({ showModal: false }, () => this.deleteHandler())}
+            onCancelClick={() => this.setState({ showModal: false })} />
+        }
+        {
+          this.state.showDetailModal &&
+          <OrderDetailModal orderID={this.state.orderID} onDoClick={() => null}
+            onCancelClick={() => this.setState({ showDetailModal: false })}
+          />
+        } */}
+          </div>
+        </>
+      </main>
     </div>
   )
 }
