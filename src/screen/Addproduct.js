@@ -12,7 +12,7 @@ import firebase from "firebase"
 // import api from "../services/api";
 // import { _getCategories } from "../Store/middlewares/appMiddleware";
 // import { Loading } from '../components/Icons'
-import { ProgressBar } from 'react-bootstrap'
+import { Dropdown, ProgressBar } from 'react-bootstrap'
 import SideNavigation from '../components/SideNavigation'
 import api from "../api/api";
 import path from "../api/path";
@@ -57,7 +57,7 @@ class Addproduct extends React.Component {
 
     }
     addProduct = async (e) => {
-        
+
         let param = {
             "name": this.state.name,
 
@@ -120,11 +120,21 @@ class Addproduct extends React.Component {
 
 
                                                 </div>
-                                                <div class="form-group col-md-6">
+                                                {/* <div class="form-group col-md-6">
                                                     <label>Product ID</label>
-                                                    <input type="text" name="name" placeholder="0122" required class="form-control" onChange={(e) => this.setState({ categoryID: e.target.value })}></input>
+                                                    <input type="text" name="name" placeholder="0122" required class="form-control"></input>
 
 
+                                                </div> */}
+                                                <div className="dropdown form-group col-md-6">
+                                                    
+                                                <label>Categories</label>
+                                                    <select className="form-control" value={this.state.Technology} onChange={this.Changetechnology}  onChange={(e) => this.setState({ categoryID: e.target.value })}>
+                                                        <option>Chair</option>
+                                                        <option>Table</option>
+                                                        <option>Sofa</option>
+                                                        <option>other</option>
+                                                    </select>
                                                 </div>
 
                                             </div>
@@ -137,12 +147,9 @@ class Addproduct extends React.Component {
                                             </div>
                                             <div class="form-group">
                                                 <label htmlFor="file-loader">Select Image</label>
-                                                <input type="file"  onChange={this.pickImage} />
+                                                <input type="file" onChange={this.pickImage} />
                                             </div>
-                                            <div class="form-group">
-                                                <label htmlFor="file-loader">Select Image</label>
-                                                <input type="file"  onChange={this.pickImage} />
-                                            </div>
+
                                             {/* <div class="form-group">
                                                 <label htmlFor="file-loader">Select Image</label>
                                                 <input maxLength='10' disabled value={this.state.image?.name ? this.state.image.name : this.state.firebaseLink} class="input form-control lenght" ></input>

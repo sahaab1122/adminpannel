@@ -14,31 +14,31 @@ import Store from './store/Store';
 import firebase from 'firebase'
 
 ReactDOM.render(
-    <PersistGate loading={false} persistor={Store.persistor}>
+  <PersistGate loading={false} persistor={Store.persistor}>
 
     <Provider store={Store.store}>
 
-    <Router>
+      <Router>
         <Routes />
-    </Router>
+      </Router>
     </Provider>
-    </PersistGate>
-    , document.getElementById('root'));
+  </PersistGate>
+  , document.getElementById('root'));
 registerServiceWorker();
 
 
 
 // Your web app's Firebase configuration
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-  var firebaseConfig = {
-    apiKey: "AIzaSyDu7aE3bFs7gQbg6NozhYjDXCKslOJh3ao",
-    authDomain: "furniture-app-caffc.firebaseapp.com",
-    projectId: "furniture-app-caffc",
-    storageBucket: "furniture-app-caffc.appspot.com",
-    messagingSenderId: "612108609367",
-    appId: "1:612108609367:web:ea15a0fbddf3116d014012",
-    measurementId: "G-3R92MWWJ0N"
-  };
-  // Initialize Firebase
-  if(!firebase.apps.length)
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+var firebaseConfig = {
+  apiKey: "AIzaSyDu7aE3bFs7gQbg6NozhYjDXCKslOJh3ao",
+  authDomain: "furniture-app-caffc.firebaseapp.com",
+  projectId: "furniture-app-caffc",
+  storageBucket: "furniture-app-caffc.appspot.com",
+  messagingSenderId: "612108609367",
+  appId: "1:612108609367:web:ea15a0fbddf3116d014012",
+  measurementId: "G-3R92MWWJ0N"
+};
+// Initialize Firebase
+if (!firebase.apps.length)
   firebase.initializeApp(firebaseConfig);

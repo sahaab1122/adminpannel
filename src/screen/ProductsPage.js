@@ -44,19 +44,20 @@ class ProductsPage extends React.Component {
 
     // this.props.setLoading(false)
   }
-  
+
 
 
 
   deleteItem = async (_id) => {
     // alert(path.deleteitem+_id)
     console.log("delting item")
-     api(path.deleteitem  +'/'+_id, "DELETE").then(res=>{
-     console.log(res)
-   })
+    api(path.deleteitem + '/' + _id, "DELETE").then(res => {
+      console.log(res)
+      alert("ITem delete")
+    })
 
     // alert(_id)
-}
+  }
 
 
 
@@ -107,14 +108,14 @@ class ProductsPage extends React.Component {
                               <option value="50">50</option>
                               <option value="100">100</option>
                             </select>
-                                        entries
-                                        </label>
+                              entries
+                            </label>
                           </div>
                         </div>
                         <div class="col-sm-12 col-md-6">
                           <div id="example1_filter" class="dataTables_filter">
                             <label>Search:
-                                                    <input type="search" class="form-control form-control-sm" placeholder="" aria-controls="example1"></input>
+                              <input type="search" class="form-control form-control-sm" placeholder="" aria-controls="example1"></input>
                             </label>
                           </div>
                         </div>
@@ -128,24 +129,24 @@ class ProductsPage extends React.Component {
                               <tr role="row">
                                 <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Sr.#: activate to sort column ascending">
                                   Sr.#
-                                                            </th>
+                                </th>
                                 <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Bottle Image: activate to sort column ascending">
                                   Name
-                                                                    </th>
+                                </th>
                                 <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Bottle Image: activate to sort column ascending">
                                   Image
-                                                                    </th>
+                                </th>
 
                                 <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Category: activate to sort column ascending">
                                   Description
-                                                                        </th>
-
+                                </th>
+                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Category: activate to sort column ascending">
+                                  categories
+                                </th>
                                 <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="edit: activate to sort column ascending">
                                   Delete
-                                                            </th>
-                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="edit: activate to sort column ascending">
-                                  Edit
-                                                            </th>
+                                </th>
+
                               </tr>
                             </thead>
                             <tbody>
@@ -163,11 +164,12 @@ class ProductsPage extends React.Component {
                                     </td>
 
                                     <td>{items.description}</td>
-
+                                    <td>{items.categoryID}</td>
                                     <td>
-                                      <button onClick={()=> this.deleteItem(items._id)}>
+                                      
+                                      <button onClick={() => this.deleteItem(items._id)}>
                                         delete
-                                       </button>
+                                      </button>
                                     </td>
                                     {/* <td><a onClick={() => this.setState({ showModal: true, deleteID: item.id })} className="btn btn-danger white">Delete</a></td> */}
                                     {/* <td><a href={'/screen/UpdateProduct?id=' + items.itemID} className="btn btn-info white">Edit</a></td> */}
@@ -219,7 +221,7 @@ const mapDispatch = dispatch => {
     // _login: (param) => dispatch(_login(param)),
     // setLoading: (bol) => dispatch(_setLoading(bol)),
     _getItem: () => dispatch(_getItems()),
-    _deleteItem:() => dispatch(_deleteItems())
+    _deleteItem: () => dispatch(_deleteItems())
 
 
   }

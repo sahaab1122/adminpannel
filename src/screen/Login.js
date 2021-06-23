@@ -4,34 +4,34 @@ import { NavLink } from "react-router-dom";
 import logo from "../components/Logo/logos.png";
 import { _login } from "../store/middlewares/authMiddleware";
 import "./login.css";
-import  React  from 'react';
+import React from 'react';
 import Loading from '../components/Loading'
 import App from "../App";
 
 
- 
+
 class Login extends React.Component {
 
     state = {
-        email: '',
-        password: '',
+        email: 'sahaabsabir6@gmail.com',
+        password: '1234',
         checkbox: '',
         loading: true,
     }
 
 
 
-    
+
     login = async (e) => {
         e.preventDefault()
         // this.props.setLoading(true)
         let res = await this.props._login({
-           email: this.state.email.trim(),
-          password:   this.state.password.trim()
-            } )
+            email: this.state.email.trim(),
+            password: this.state.password.trim()
+        })
         if (res.success === true) {
-            window.location ="/App"
-            
+            // window.location ="/App"
+
             // if (this.props.admin) {
             //     this.props.admin()
             // }
@@ -45,25 +45,23 @@ class Login extends React.Component {
 
     render() {
         return (
-            <>
+            <div style={{display:"flex" ,alignItems:"center",  justifyContent:"center",height:"100vh",width:"100%"}}>
 
-                <form onSubmit={this.login}  >
+                <form onSubmit={this.login}style={{width:"30%"}} >
                     <div class="form-group">
                         <label for="Email">Email address</label>
                         <input value={this.state.email} onChange={(e) => this.setState({ email: e.target.value })} type="email" class="form-control form-control-sm" id="Email" aria-describedby="emailHelp" required />
                     </div>
                     <div class="form-group">
                         <label for="password">Password</label>
-                        <a href="#" style={{ float: "right", fontSize: "12px" }}>Forgot password?</a>
+                        {/* <a href="#" style={{ float: "right", fontSize: "12px" }}>Forgot password?</a> */}
                         <input value={this.state.password} onChange={(e) => this.setState({ password: e.target.value })} type="password" class="form-control form-control-sm" id="password" required />
                     </div>
                     <button type="submit" style={{ backgroundColor: '#960200' }} class="btn btn-primary btn-block">{this.props.Loading ? <Loading color="#fffa" /> : "Login"}</button>
 
-                    <div class="sign-up">
-                        Don't have an account? <a className="link" href="/">Create One</a>
-                    </div>
+                   
                 </form>
-            </>
+            </div>
         )
     }
 

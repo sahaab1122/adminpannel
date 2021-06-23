@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import ProductsPage from '../screen/ProductsPage';
 import CategoriesPage from '../screen/CategoriesPage';
 import OrdersPage from '../screen/OrdersPage';
@@ -12,44 +12,31 @@ import AddCategory from '../screen/AddCategory';
 import Addproduct from '../screen/Addproduct';
 import UpdateProduct from '../screen/UpdateProduct';
 
+
+
 class Routes extends React.Component {
   render() {
-    // console.log(this.props.user.type)
-    // const { type, path, component, logged, } = this.props
 
-// console.log('props',this.props);
-console.log(this.props.logged)
     return (
-      // <Switch>
-      //   {
-      //     this.props.user.type=='Pages'  ?
-    <>
-        <Route exact path="/"  />
+      <React.Fragment>
+
         {
-                    this.props.logged ?
-                    <App />
-                    :
-                    <Login />
+          !this.props.logged ?
+            <Route exact path="/" component={Login} />
+            :
+            <>
+              <Route exact path="/" component={App} />
+              <Route path='/products' component={ProductsPage} /> 
+              <Route path='/catogaries' component={CategoriesPage} />
+              <Route path='/order' component={OrdersPage} />
+              <Route path='/user' component={UsersPage} />
+              <Route path='/UpdateProduct' component={UpdateProduct} />
+              <Route path='/AddCategory' component={AddCategory} />
+              <Route path='/Addproduct' component={Addproduct} />
+            </>
+        }
 
-
-
-                }
-        <Route path='/products' component={ProductsPage} />
-        <Route path='/Login' component={Login} />
-        <Route path='/catogaries' component={CategoriesPage} />
-        <Route path='/order' component={OrdersPage} />
-        <Route path='/user' component={UsersPage} />
-        <Route path='/UpdateProduct' component={UpdateProduct} />
-        <Route path='/AddCategory' component={AddCategory} />
-        <Route path='/Addproduct' component={Addproduct} />
-        </>
-      //   :
-      //      <>
-      //       <Route exact path="/" component={Login} />
-      //       <Route login='login' exact path="/store" component={DashboardPage} />
-      //       </>
-      //   }
-      // </Switch>
+      </React.Fragment>
     );
   }
 }
@@ -78,7 +65,7 @@ console.log(this.props.logged)
 // export default ;
 const mapState = state => {
   return {
-      logged: state.authReducer.logged,
+    logged: state.authReducer.logged,
   }
 }
 

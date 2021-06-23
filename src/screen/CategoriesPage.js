@@ -130,13 +130,12 @@ class CategoriesPage extends React.Component {
                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Category: activate to sort column ascending">
                                   Description
                                                                         </th> 
-
+                                
+                               
                                 <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="edit: activate to sort column ascending">
                                   Delete
                                                             </th>
-                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="edit: activate to sort column ascending">
-                                  Edit
-                                                            </th>
+                               
                               </tr>
                             </thead>
                             <tbody>
@@ -158,6 +157,7 @@ class CategoriesPage extends React.Component {
 
                                     <td class="sorting_1">
                                       {categories.descriptions}</td>
+                                      
 
 
                                     {/* <td><a onClick={() => this.setState({ showModal: true, deleteID: item.id })} className="btn btn-danger white">Delete</a></td> */}
