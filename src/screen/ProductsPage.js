@@ -63,24 +63,7 @@ class ProductsPage extends React.Component {
 
 
 
-  // async componentDidMount(){
-  //     console.log(this.props);
-
-  //     let res = await api.getCategory();
-  //     console.log(res.result);
-  //     this.setState({orderdata:res.result})
-  // }
-
-
-  // deleteHandler = async () => {
-  //     console.log(this.state.deleteID)
-  //     this.setState({ showModal: false })
-  //     let res = await api.deleteCategory( this.state.deleteID)
-  //     if (res) {
-  //         window.location.reload();
-
-  //     }
-  // }
+  
 
   render() {
     console.log(this.props.items)

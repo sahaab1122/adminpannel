@@ -116,35 +116,13 @@ class AddCategory extends React.Component {
 
                                                 </div>
 
-                                                <div class="form-group col-md-6">
-                                                    <label>Categories ID</label>
-                                                    <input type="text" name="name" placeholder="0122" required class="form-control" onChange={(e) => this.setState({ categoryID: e.target.value })}></input>
-
-
-                                                </div>
+                                              
 
                                             </div>
-                                            <div className='row'>
-                                                <div class="form-group col-md-5">
-                                                    <label>Description</label>
-                                                    <textarea name="description" required class="form-control" onChange={(e) => this.setState({ description: e.target.value })} cols="6" rows="6"></textarea>
-                                                </div>
-
-                                            </div>
-                                            <div class="form-group col-md-6">
-                                                <div>
-                                                    <label>Price</label>
-                                                    <input type="text" name="name" placeholder="0122" required class="form-control" onChange={(e) => this.setState({ price: e.target.value })}></input>
-
-
-                                                </div>
-
-                                            </div>
+                                        
                                             
-                                            <div class="form-group">
-                                                <label htmlFor="file-loader">Select Image</label>
-                                                <input type="file" onChange={this.pickImage} />
-                                            </div>
+                                            
+                                            
                                             {/* <div class="form-group">
                                                 <label htmlFor="file-loader">Select Image</label>
                                                 <input maxLength='10' disabled value={this.state.image?.name ? this.state.image.name : this.state.firebaseLink} class="input form-control lenght" ></input>

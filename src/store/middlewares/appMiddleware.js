@@ -68,6 +68,17 @@ export const _deleteItems = () => {
         }
     }
 }
+export const _deleteCategories = () => {
+
+    return async (dispatch, getState) => {
+
+
+        let res = await api(path.deleteCategories, "DELETE",);
+        if (res) {
+            // dispatch(set_items(res.result))
+        }
+    }
+}
 export const _getCategories = () => {
 
     return async (dispatch, getState) => {
@@ -76,6 +87,17 @@ export const _getCategories = () => {
         let res = await api(path.getcategories, "GET",);
         if (res) {
             dispatch(set_categories(res.result))
+        }
+    }
+} 
+export const _getOrders = () => {
+
+    return async (dispatch, getState) => {
+
+
+        let res = await api(path.getorders, "GET",);
+        if (res) {
+            dispatch(set_orders(res.result))
         }
     }
 } 

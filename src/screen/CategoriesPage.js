@@ -11,7 +11,9 @@ import '../styles/index.css'
 // import api from "../services/api";
 import SideNavigation from '../components/SideNavigation'
 import { connect } from "react-redux";
-import { _getCategories } from "../store/middlewares/appMiddleware";
+import { _deleteCategories, _getCategories } from "../store/middlewares/appMiddleware";
+import api from "../api/api";
+import path from "../api/path";
 
 class CategoriesPage extends React.Component {
 
@@ -48,8 +50,18 @@ class CategoriesPage extends React.Component {
 
       // }
     }
-    // this.props.setLoading(false)
   }
+    // this.props.setLoading(false)
+
+    deletecat = async (_id) => {
+      // alert(path.deleteitem+_id)
+      console.log("delting categories")
+      api(path.deletecat + '/' + _id, "DELETE").then(res => {
+        console.log(res)
+        alert("ITem categories")
+      })
+    }
+  
   // async componentDidMount(){
   //     console.log(this.props);
 
@@ -95,14 +107,14 @@ class CategoriesPage extends React.Component {
                               <option value="50">50</option>
                               <option value="100">100</option>
                             </select>
-                                        entries
-                                        </label>
+                              entries
+                            </label>
                           </div>
                         </div>
                         <div class="col-sm-12 col-md-6">
                           <div id="example1_filter" class="dataTables_filter">
                             <label>Search:
-                                                    <input type="search" class="form-control form-control-sm" placeholder="" aria-controls="example1"></input>
+                              <input type="search" class="form-control form-control-sm" placeholder="" aria-controls="example1"></input>
                             </label>
                           </div>
                         </div>
@@ -116,26 +128,18 @@ class CategoriesPage extends React.Component {
                               <tr role="row">
                                 <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Sr.#: activate to sort column ascending">
                                   Sr.#
-                                                            </th>
+                                </th>
                                 <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Bottle Image: activate to sort column ascending">
                                   Name
-                                                                    </th>
-                                                                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Bottle Image: activate to sort column ascending">
-                                  ID
-                                                                    </th>
-                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Bottle Image: activate to sort column ascending">
-                                  Image
-                                                                    </th> 
-
-                               <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Category: activate to sort column ascending">
-                                  Description
-                                                                        </th> 
-                                
+                                </th>
                                
+
+
+
                                 <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="edit: activate to sort column ascending">
                                   Delete
-                                                            </th>
-                               
+                                </th>
+
                               </tr>
                             </thead>
                             <tbody>
@@ -146,18 +150,14 @@ class CategoriesPage extends React.Component {
                                     <td class="sorting_1">
                                       {categories.name}
                                     </td>
-                                    <td class="sorting_1">
-                                      {categories.id}
-                                    </td>
+                                    
+
+                                     
                                     <td>
-
-                                      <img src={categories.image || "./viewitemhtml_files/1603476881.png"} style={{ width: "80px", height: "80px" }}></img>
-
+                                      <button onClick={() => this.deletecat(categories._id)}>
+                                        delete
+                                      </button>
                                     </td>
-
-                                    <td class="sorting_1">
-                                      {categories.descriptions}</td>
-                                      
 
 
                                     {/* <td><a onClick={() => this.setState({ showModal: true, deleteID: item.id })} className="btn btn-danger white">Delete</a></td> */}
@@ -205,7 +205,8 @@ const mapDispatch = dispatch => {
   return {
     // _login: (param) => dispatch(_login(param)),
     // setLoading: (bol) => dispatch(_setLoading(bol)),
-    _getCategories: () => dispatch(_getCategories())
+    _getCategories: () => dispatch(_getCategories()),
+    _deleteCategories: () => dispatch(_deleteCategories())
 
 
   }
