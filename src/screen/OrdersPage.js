@@ -121,12 +121,7 @@ class OrdersPage extends React.Component {
                                     Product Name
                                   </th>
 
-                                  <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Category: activate to sort column ascending">
-                                    Price
-                                  </th>
-                                  <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Category: activate to sort column ascending">
-                                    Action
-                                  </th>
+                                  
 
                                 </tr>
                               </thead>
@@ -143,7 +138,7 @@ class OrdersPage extends React.Component {
                                       <td>{orders.orderDate}</td>
                                       <td>{orders.price}</td>
                                       <td>{orders.orderNo}</td>
-                                      <td>{orders.user}</td>
+                                      
 
                                     </tr>
 

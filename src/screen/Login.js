@@ -45,9 +45,9 @@ class Login extends React.Component {
 
     render() {
         return (
-            <div style={{display:"flex" ,alignItems:"center",  justifyContent:"center",height:"100vh",width:"100%"}}>
+            <div style={{display:"flex" ,alignItems:"center",  justifyContent:"center",height:"100%",width:"100%"}}>
 
-                <form onSubmit={this.login}style={{width:"0%"}} >
+                <form onSubmit={this.login}style={{height:'100%'}} >
                     <div class="form-group">
                         <label for="Email">Email address</label>
                         <input value={this.state.email} onChange={(e) => this.setState({ email: e.target.value })} type="email" class="form-control form-control-sm" id="Email" aria-describedby="emailHelp" required />
