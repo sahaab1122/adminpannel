@@ -5,6 +5,7 @@
   "author": "MDBootstrap <support@mdbootstrap.com>",
   "license": "MIT",
   "dependencies": {
+    "expo": "^42.0.0",
     "firebase": "^8.6.3",
     "google-map-react": "^1.0.6",
     "mdbreact": "^4.9.0",
