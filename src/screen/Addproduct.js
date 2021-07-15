@@ -69,7 +69,7 @@ class Addproduct extends React.Component {
         let response = await api(path.itemsadd, "POST", param)
         // alert(response.message)
         console.log(response.message)
-        alert(response.message)
+        alert("Product added")
     }
 
     pickImage = (e) => {
@@ -92,9 +92,9 @@ class Addproduct extends React.Component {
                     <div className="dashboard">
                         {/* <ResponsiveDrawer /> */}
                         <section class="content-admin" style={{ paddingTop: 100, position: 'relative' }}>
-                            <div style={{ position: 'absolute', top: 0, width: '100%' }}>
+                            {/* <div style={{ position: 'absolute', top: 0, width: '100%' }}>
                                 <ProgressBar now={this.state.progress} style={{ opacity: this.state.progress, height: 5 }} />
-                            </div>
+                            </div> */}
 
                             {
                                 this.state.message &&
@@ -130,16 +130,25 @@ class Addproduct extends React.Component {
                                                     
                                                 <label>Categories</label>
                                                     <select className="form-control" value={this.state.Technology} onChange={this.Changetechnology}  onChange={(e) => this.setState({ categoryID: e.target.value })}>
-                                                        <option>Chair</option>
+                                                        <option>Bedroom</option>
+                                                        <option>living-Room</option>
+                                                        <option>Kitchen</option>
+                                                        <option>Antiques</option>
+                                                        <option>Interior</option>
                                                         <option>Table</option>
-                                                        <option>Sofa</option>
-                                                        <option>other</option>
+                                                        <option>Chair</option>
                                                     </select>
+                                                </div>
+                                                    <div class="form-group col-md-12">
+                                                    <label>Subcategories</label>
+                                                    <input type="text" name="name" placeholder="sub categories" required class="form-control" onChange={(e) => this.setState({ price: e.target.value })}></input>
+
+
                                                 </div>
 
                                             </div>
                                             <div className='row'>
-                                                <div class="form-group col-md-5">
+                                                <div class="form-group col-md-12">
                                                     <label>Description</label>
                                                     <textarea name="description" required class="form-control" onChange={(e) => this.setState({ description: e.target.value })} cols="6" rows="6"></textarea>
                                                 </div>

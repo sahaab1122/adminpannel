@@ -58,7 +58,7 @@ class CategoriesPage extends React.Component {
       console.log("delting categories")
       api(path.deletecat + '/' + _id, "DELETE").then(res => {
         console.log(res)
-        alert("ITem categories")
+        alert("Categories Delete")
       })
     }
   
@@ -80,6 +80,17 @@ class CategoriesPage extends React.Component {
 
   //     }
   // }
+
+  deleteItem = async (_id) => {
+    // alert(path.deleteitem+_id)
+    console.log("delting item")
+    api(path.deleteitem + '/' + _id, "DELETE").then(res => {
+      console.log(res)
+      alert("ITem delete")
+    })
+
+    // alert(_id)
+  }
 
   render() {
     console.log(this.props.categories)

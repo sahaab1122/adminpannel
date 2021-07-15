@@ -43,6 +43,12 @@ const TopNavigation = (props) => {
                         Add Category
                     </MDBListGroupItem>
                 </a>
+                <a href="/user" activeClassName="activeClass">
+                    <MDBListGroupItem>
+                        <MDBIcon icon="fas fa-user-friends" className="mr-3" />
+                         Add Sub categories
+                    </MDBListGroupItem>
+                </a>
                 <a href="/order" activeClassName="activeClass">
                     <MDBListGroupItem>
                         <MDBIcon icon="fas fa-shopping-cart" className="mr-3" />

@@ -27,6 +27,12 @@ export const deleteitem = (info) => (
         info: info
     }
 )
+export const deleteCategories = (info) => (
+    {
+        type: DELETE,
+        info: info
+    }
+)
  
 
 // export const set_logged = (payload) => (
