@@ -16,6 +16,7 @@ import { Dropdown, ProgressBar } from 'react-bootstrap'
 import SideNavigation from '../components/SideNavigation'
 import api from "../api/api";
 import path from "../api/path";
+import { _getCategories } from "../store/middlewares/appMiddleware";
 
 class Addproduct extends React.Component {
     constructor() {
@@ -34,8 +35,13 @@ class Addproduct extends React.Component {
             categoryID: "",
             description: "",
             price: "",
-            image: ""
+            image: "",
+            subCategory: [],
         }
+    }
+
+    componentDidMount() {
+        this.props._getCategories()
     }
     uploadImage = async (e) => {
         e.preventDefault()
@@ -78,10 +84,15 @@ class Addproduct extends React.Component {
             this.setState({ image: e.target.files[0] })
     }
 
+    getSubCategory = (name) => {
+        return this.props.categories.find(item => item.name === name).subcategories
+
+    }
+
     render() {
 
 
-        // console.log(this.props.items)
+        console.log(this.props.categories)
 
 
 
@@ -127,22 +138,27 @@ class Addproduct extends React.Component {
 
                                                 </div> */}
                                                 <div className="dropdown form-group col-md-6">
-                                                    
-                                                <label>Categories</label>
-                                                    <select className="form-control" value={this.state.Technology} onChange={this.Changetechnology}  onChange={(e) => this.setState({ categoryID: e.target.value })}>
-                                                        <option>Bedroom</option>
-                                                        <option>living-Room</option>
-                                                        <option>Kitchen</option>
-                                                        <option>Antiques</option>
-                                                        <option>Interior</option>
-                                                        <option>Table</option>
-                                                        <option>Chair</option>
+
+                                                    <label>Categories</label>
+                                                    <select className="form-control" value={this.state.categoryID} onChange={(e) => this.setState({ categoryID: e.target.value, subCategory: this.getSubCategory(e.target.value) })}>
+                                                        {
+                                                            this.props.categories.map((item, index) => (
+                                                                <option value={item.name} key={index} >{item.name}</option>
+                                                            ))
+                                                        }
+
                                                     </select>
                                                 </div>
-                                                    <div class="form-group col-md-12">
+                                                <div class="form-group col-md-12">
                                                     <label>Subcategories</label>
-                                                    <input type="text" name="name" placeholder="sub categories" required class="form-control" onChange={(e) => this.setState({ price: e.target.value })}></input>
+                                                    <select className="form-control" onChange={this.Changetechnology} onChange={(e) => this.setState({ subcategories: e.target.value })}>
+                                                        {
+                                                            this.state.subCategory.map((item, index) => (
+                                                                <option value={item} key={index} >{item}</option>
+                                                            ))
+                                                        }
 
+                                                    </select>
 
                                                 </div>
 
@@ -179,17 +195,17 @@ class Addproduct extends React.Component {
     }
 }
 
-// const mapState = state => {
-//     return {
-//         loading: state.globalReducer.loading,
-//         categories: state.appReducer.categories,
-//     }
-// }
-// const mapDispatch = dispatch => {
-//     return {
-//         setLoading: bol => dispatch(set_loading(bol)),
-//         _getCategory: () => dispatch(_getCategories())
-//     }
-// }
+const mapState = state => {
+    return {
+        // loading: state.globalReducer.loading,
+        categories: state.appReducer.categories,
+    }
+}
+const mapDispatch = dispatch => {
+    return {
+        // setLoading: bol => dispatch(set_loading(bol)),
+        _getCategories: () => dispatch(_getCategories())
+    }
+}
 
-export default Addproduct
+export default connect(mapState, mapDispatch)(Addproduct)

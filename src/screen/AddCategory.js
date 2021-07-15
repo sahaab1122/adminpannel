@@ -31,6 +31,7 @@ class AddCategory extends React.Component {
             // firebaseLink: '',
             // progress: 0, edit: false,
             name: "",
+            subcategories: [""],
             categoryID: "",
             description: "",
             price: "",
@@ -58,9 +59,10 @@ class AddCategory extends React.Component {
 
     }
     AddCategory = async (e) => {
-       
+
         let param = {
             "name": this.state.name,
+            "subcategories": this.state.subcategories,
             "categoryID": this.state.categoryID,
             "description": this.state.description,
             "price": this.state.price,
@@ -70,7 +72,7 @@ class AddCategory extends React.Component {
         }
         let response = await api(path.categoriesadd, "POST", param)
         // alert(response.message)
-        console.log(response.message)
+        this.setState({ subcategories: [""] })
         alert(response.message)
     }
 
@@ -78,6 +80,12 @@ class AddCategory extends React.Component {
         e.preventDefault()
         if (e.target.files)
             this.setState({ image: e.target.files[0] })
+    }
+
+    onChangeCategory = (e, index) => {
+        let temp = this.state.subcategories;
+        temp[index] = e.target.value;
+        this.setState({ subcategories: temp })
     }
     render() {
 
@@ -108,27 +116,32 @@ class AddCategory extends React.Component {
                                     <div class="row">
                                         <div class="col-md-12">
                                             <input type="hidden" name="_token" value="hrxeTL0t5hnBVb8Q3Q4vTc42CXU88qyd320Luzkv"></input>
-                                            <div className="row">
-                                                <div class="form-group col-md-6">
-                                                    <label> Name</label>
-                                                    <input type="text" name="name" placeholder="john etc" required class="form-control" onChange={(e) => this.setState({ name: e.target.value })}></input>
 
+                                            <div class="form-group col-md-6">
+                                                <label> Name</label>
+                                                <input type="text" name="name" placeholder="john etc" required class="form-control" onChange={(e) => this.setState({ name: e.target.value })}></input>
 
-                                                </div>
-                                                <div class="form-group col-md-6">
-                                                    <label> Subcategories</label>
-                                                    <input type="text" name="name" placeholder="john etc" required class="form-control" onChange={(e) => this.setState({ name: e.target.value })}></input>
-
-
-                                                </div>
-
-                                              
 
                                             </div>
-                                        
-                                            
-                                            
-                                            
+                                            {
+                                                this.state.subcategories.map((item, index) => (
+                                                    <div className='row' >
+                                                        <div class="form-group col-md-6">
+                                                            <label> Subcategories</label>
+                                                            <input type="text" name="name" placeholder="john etc" value={item} required class="form-control" onChange={(e) => this.onChangeCategory(e, index)}></input>
+                                                        </div>
+                                                        <text className="btn" style={{ marginLeft: 10, fontSize: 6, height: 15, padding: 0 }} onClick={() => this.setState({ subcategories: this.state.subcategories.concat("") })} >Add</text>
+                                                    </div>
+                                                ))
+                                            }
+
+
+
+
+
+
+
+
                                             {/* <div class="form-group">
                                                 <label htmlFor="file-loader">Select Image</label>
                                                 <input maxLength='10' disabled value={this.state.image?.name ? this.state.image.name : this.state.firebaseLink} class="input form-control lenght" ></input>
