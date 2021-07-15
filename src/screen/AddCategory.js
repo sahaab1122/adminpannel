@@ -31,6 +31,7 @@ class AddCategory extends React.Component {
             // firebaseLink: '',
             // progress: 0, edit: false,
             name: "",
+            subcategories:"",
             categoryID: "",
             description: "",
             price: "",
@@ -61,6 +62,7 @@ class AddCategory extends React.Component {
        
         let param = {
             "name": this.state.name,
+            "subcategories":this.state.subcategories,
             "categoryID": this.state.categoryID,
             "description": this.state.description,
             "price": this.state.price,
@@ -117,7 +119,7 @@ class AddCategory extends React.Component {
                                                 </div>
                                                 <div class="form-group col-md-6">
                                                     <label> Subcategories</label>
-                                                    <input type="text" name="name" placeholder="john etc" required class="form-control" onChange={(e) => this.setState({ name: e.target.value })}></input>
+                                                    <input type="text" name="name" placeholder="john etc" required class="form-control" onChange={(e) => this.setState({  subcategories: e.target.value })}></input>
 
 
                                                 </div>
